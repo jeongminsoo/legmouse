@@ -1,8 +1,19 @@
 package com.lec.ex2_swing;
 
-import java.awt.*;
-import java.awt.event.*;
-import javax.swing.*;
+import java.awt.BorderLayout;
+import java.awt.Container;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 
 public class Ex03_GUI extends JFrame implements ActionListener{
@@ -43,7 +54,7 @@ public class Ex03_GUI extends JFrame implements ActionListener{
 		setVisible(true);
 		setBounds(200, 100, 400, 300);
 		
-		
+		jBtn.addActionListener(this);
 	}
 	
 	
@@ -52,7 +63,38 @@ public class Ex03_GUI extends JFrame implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		if (e.getSource() == jBtn) {
+			String name  = txtName.getText().trim();
+			String tel = txtTel.getText().trim();
+			if (name.equals("") || tel.equals("")) {
+				System.out.println("이름과 전화번호는 필수 입력 사항입니다.");
+				return;
+			}
+			if (tel.indexOf("-") == tel.lastIndexOf("-") || tel.indexOf("-") == -1
+					|| tel.indexOf("-") < 2 || tel.lastIndexOf("-") > 10) {
+				System.out.println("전화번호 형식을 확인해주세요.");
+				return;
+			}
+			
+			int age = 0;
+			try {
+				age = Integer.parseInt(txtAge.getText());
+				if (age <= 0 || age > 150) {
+					System.out.println("유효하지 않는 나이이므로 0살");
+					age = 0;
+				}
+			} catch (Exception e1) {
+				System.out.println("유효하지 않는 나이를 입력하였습니다.");
+			}
+			System.out.println(++cnt + "명 입력됨");
+			if (cnt == 1) {
+				jta.setText("이름\t전화\t나이\n");
+			}
+			jta.append(name + "\t" + tel + "\t " + age + "\n");
+			txtName.setText("");
+			txtTel.setText("");
+			txtAge.setText("");
+		}
 		
 	}
 
