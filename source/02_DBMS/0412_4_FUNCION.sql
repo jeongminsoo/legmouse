@@ -18,7 +18,7 @@ SELECT FLOOR(34.5678) FROM DUAL;  -- 소수점에서 내림
 SELECT FLOOR(34.5678*100)/100 FROM DUAL; -- 소수점 두번째자리에서 내림
 SELECT TRUNC(34.5678, 2) FROM DUAL; -- 소수점 두번째자리에서 내림
 SELECT TRUNC(34.5678) FROM DUAL;  -- 소수점에서 내림
-SELECT tRUNC(34, -1) FROM DUAL;  -- 일의 자리에서 내림
+SELECT TRUNC(34, -1) FROM DUAL;  -- 일의 자리에서 내림
 
 SELECT CEIL(34.5678) FROM DUAL;  -- 소수점에서 올림
 SELECT CEIL(34.5678*100)/100 FROM DUAL;  -- 소수점 두번째자리에서 올림
