@@ -54,7 +54,7 @@ public class Person {
 					pstmt.setInt(4, sc.nextInt());
 					
 					System.out.print("¼öÇÐ : ");
-					pstmt.setInt(5, sc.nextInt(0));
+					pstmt.setInt(5, sc.nextInt());
 					
 					int result = pstmt.executeUpdate();
 					
