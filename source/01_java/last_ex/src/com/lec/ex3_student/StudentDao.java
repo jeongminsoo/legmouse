@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Vector;
 
 public class StudentDao {
 
@@ -74,7 +75,7 @@ public class StudentDao {
 	}
 	
 	// 이름검색
-	public ArrayList<StudentDto> selectName(String sName) {
+	public ArrayList<StudentDto> selectSName(String sName) {
 		ArrayList<StudentDto> students = new ArrayList<StudentDto>();
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -87,14 +88,16 @@ public class StudentDao {
 			pstmt.setString(1, sName);
 			rs = pstmt.executeQuery();
 			
-			while(rs.next()) {
-				StudentDto dto = new StudentDto();
-				dto.setSno(rs.getInt("sno"));
-				dto.setsName(rs.getString("sname"));
-				dto.setmName(rs.getString("mname"));
-				dto.setScore(rs.getInt("score"));
-				students.add(dto);
-			}
+
+				while(rs.next()) {
+					StudentDto dto = new StudentDto();
+					dto.setSno(rs.getInt("sno"));
+					dto.setsName(sName);
+					dto.setmName(rs.getString("mname"));
+					dto.setScore(rs.getInt("score"));
+					students.add(dto);
+				}
+			
 			
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
@@ -132,14 +135,14 @@ public class StudentDao {
 			pstmt.setString(1, mName);
 			rs = pstmt.executeQuery();
 			
-			while(rs.next()) {
-				StudentDto dto = new StudentDto();
-				dto.setRank(rs.getString("rank"));
-				dto.setsName(rs.getString("name"));
-				dto.setmName(rs.getString("smname"));
-				dto.setScore(rs.getInt("score"));
-				students.add(dto);
-			}
+				while(rs.next()) {
+					StudentDto dto = new StudentDto();
+					dto.setRank(rs.getString("rank"));
+					dto.setsName(rs.getString("name"));
+					dto.setmName(rs.getString("smname"));
+					dto.setScore(rs.getInt("score"));
+					students.add(dto);
+				}
 			
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
@@ -160,7 +163,7 @@ public class StudentDao {
 		}
 		return students;
 	}
-	
+	// 학생입력
 	public int insertStudent(StudentDto dto) {
 		int result = FAIL;
 		Connection conn = null;
@@ -191,7 +194,7 @@ public class StudentDao {
 		}
 		return result;
 	}
-	
+	// 학생수정
 	public int updateStudent(StudentDto dto) {
 		int result = FAIL;
 		Connection conn = null;
@@ -223,7 +226,7 @@ public class StudentDao {
 		}
 		return result;
 	}
-	
+	// 학생출력
 	public ArrayList<StudentDto> selectAll() {
 		ArrayList<StudentDto> students = new ArrayList<StudentDto>();
 		Connection conn = null;
@@ -266,7 +269,7 @@ public class StudentDao {
 		return students;
 	}
 	
-	public int updateExpel(StudentDto dto) {
+	public int updateExpel(int sno) {
 		int result = FAIL;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -275,7 +278,7 @@ public class StudentDao {
 		try {
 			conn = DriverManager.getConnection(url, "scott", "tiger");
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, dto.getSno());
+			pstmt.setInt(1, sno);
 			result = pstmt.executeUpdate();
 			
 		} catch (SQLException e) {
@@ -295,13 +298,93 @@ public class StudentDao {
 		return result;
 		
 	}
+	// 제적자출력
+	public ArrayList<StudentDto> selectExpel() {
+		ArrayList<StudentDto> expel = new ArrayList<StudentDto>();
+		Connection conn = null;
+		Statement stmt = null;
+		ResultSet rs = null;
+		
+		String sql = "SELECT ROWNUM||'등' \"RANK\", NAME, SMNAME, SCORE" + 
+				" FROM (SELECT SNAME||'('||S.SNO||')' \"NAME\", MNAME||'('||S.MNO||')' \"SMNAME\", SCORE "
+				+ "FROM STUDENT S, MAJOR M WHERE S.MNO = M.MNO AND EXPEL = 1 ORDER BY SCORE DESC)";
+		
+		try {
+			conn = DriverManager.getConnection(url, "scott", "tiger");
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+			
+
+				while(rs.next()) {
+					String rank = rs.getString("rank");
+					String sName = rs.getString("name");
+					String mName = rs.getString("smname");
+					int score = rs.getInt("score");
+					StudentDto dto = new StudentDto(rank, sName, mName, score, 1);
+					expel.add(dto);
+				}
+
+			
+			
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				if (stmt != null) {
+					stmt.close();
+				}
+				if (conn != null) {
+					conn.close();
+				}
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+			}
+		}
+
+		return expel;
+	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
+	public Vector<String> majorList() {
+		Vector<String> major = new Vector<String>();
+		major.add("");
+		
+		Connection conn = null;
+		Statement stmt = null;
+		ResultSet rs = null;
+		String sql = "SELECT MNAME FROM MAJOR";
+		
+		try {
+			conn = DriverManager.getConnection(url, "scott", "tiger");
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+			
+			while(rs.next()) {
+				major.add(rs.getString("mname"));
+			}
+			
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				if (stmt != null) {
+					stmt.close();
+				}
+				if (conn != null) {
+					conn.close();
+				}
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+			}
+		}
+		
+		
+		
+		return major;
+	}
 }

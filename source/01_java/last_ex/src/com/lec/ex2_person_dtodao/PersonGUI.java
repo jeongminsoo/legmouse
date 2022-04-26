@@ -28,7 +28,7 @@ public class PersonGUI extends JFrame implements ActionListener{
 	private JTextField txtKor;
 	private JTextField txtEng;
 	private JTextField txtMat;
-	private JComboBox comJob;
+	private JComboBox<String> comJob;
 	private ImageIcon icon1;
 	private ImageIcon icon2;
 	private ImageIcon icon3;

@@ -31,24 +31,45 @@ public class StudentDto {
 		this.mName = mName;
 		this.score = score;
 	}
+	// 학생출력
 	public StudentDto(String rank, String sName, String mName, int score) {
 		this.rank = rank;
 		this.sName = sName;
 		this.mName = mName;
 		this.score = score;
 	}
-	
+	// 제적자출력
+	public StudentDto(String rank, String sName, String mName, int score, int expel) {
+		this.rank = rank;
+		this.sName = sName;
+		this.mName = mName;
+		this.score = score;
+		this.expel = expel;
+	}
+	// 학생수정 , 이름검색
 	public StudentDto(int sno, String sName, String mName, int score) {
 		this.sno = sno;
 		this.sName = sName;
 		this.mName = mName;
 		this.score = score;
 	}
-
+	// 학생입력
 	public StudentDto(String sName, String mName, int score) {
 		this.sName = sName;
 		this.mName = mName;
 		this.score = score;
+	}
+	
+	
+	
+	@Override
+	public String toString() {
+		
+		if (rank != null) {
+			return rank + "\t" + sName + "\t" + mName + "\t" + score + "\n";
+		} else {
+			return sno + "\t" + sName + "\t" + mName + "\t" + score + "\n";
+		}
 	}
 
 	public String getRank() {

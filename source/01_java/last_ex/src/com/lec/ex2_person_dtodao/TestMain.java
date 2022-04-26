@@ -43,5 +43,13 @@ public class TestMain {
 		
 		Vector<String> jnames = dao.jnameList();
 		System.out.println(jnames);
+
+		
+		
+		
+		
+		
+		
+		
 	}
 }
