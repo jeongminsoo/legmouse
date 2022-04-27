@@ -313,7 +313,7 @@ public class CustomerGUI extends JFrame implements ActionListener{
 				return;
 			}
 			
-			if (tel.length() != 13) {
+			if (tel.length() != 13 || tel.lastIndexOf('-') == -1) {
 				jta.setText("전화번호 입력시 010-0000-0000 의 형식으로 입력하세요");
 				return;
 			}
@@ -336,7 +336,7 @@ public class CustomerGUI extends JFrame implements ActionListener{
 				return;
 			}
 			
-			if (tel.length() != 13) {
+			if (tel.length() != 13 || tel.lastIndexOf('-') == -1) {
 				jta.setText("전화번호 입력시 010-0000-0000 의 형식으로 입력하세요");
 				return;
 			}
