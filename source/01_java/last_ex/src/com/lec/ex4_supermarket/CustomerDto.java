@@ -1,8 +1,10 @@
 package com.lec.ex4_supermarket;
 
+import java.text.DecimalFormat;
+
 public class CustomerDto {
 
-	private String cId;
+	private int cId;
 	private String cTel;
 	private String cName;
 	private int cPoint;
@@ -15,7 +17,7 @@ public class CustomerDto {
 	}
 	
 	// 입력용
-	public CustomerDto(String cId, String cTel, String cName, int cPoint, int cAmount, byte levelNo) {
+	public CustomerDto(int cId, String cTel, String cName, int cPoint, int cAmount, byte levelNo) {
 		this.cId = cId;
 		this.cTel = cTel;
 		this.cName = cName;
@@ -32,27 +34,28 @@ public class CustomerDto {
 	}
 	
 	// 아이디 검색, 전화번호4자리, 전체 검색, 이름검색
-	public CustomerDto(String cId, String cTel, String cName, int cPoint, int cAmount, byte levelNo, int gap) {
+	public CustomerDto(int cId, String cTel, String cName, int cPoint, int cAmount, String levelName, int gap) {
 		this.cId = cId;
 		this.cTel = cTel;
 		this.cName = cName;
 		this.cPoint = cPoint;
 		this.cAmount = cAmount;
-		this.levelNo = levelNo;
+		this.levelName = levelName;
 		this.gap = gap;
 	}
 
 	@Override
 	public String toString() {
-		return cId + "\t" + cTel + "\t\t" + cName + "\t" + cPoint
-				+ "\t" + cAmount + "\t" + levelName + "\t" + gap + "\n";
+		DecimalFormat df = new DecimalFormat();
+		return cId + "\t" + cTel + "\t\t" + cName + "\t" + df.format(cPoint)
+				+ "\t" + df.format(cAmount) + "\t" + levelName + "\t" + df.format(gap) + "\n";
 	}
 
-	public String getcId() {
+	public int getcId() {
 		return cId;
 	}
 
-	public void setcId(String cId) {
+	public void setcId(int cId) {
 		this.cId = cId;
 	}
 

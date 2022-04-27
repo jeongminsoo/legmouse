@@ -5,7 +5,7 @@ import java.text.DecimalFormat;
 public class ex {
 
 	public static void main(String[] args) {
-		double num = 123000000000l;
+		double num = 1230l;
 		DecimalFormat df0 = new DecimalFormat("00000000");
 		System.out.println(df0.format(num));
 		DecimalFormat df1 = new DecimalFormat("########");

@@ -382,9 +382,6 @@ public class StudentDao {
 				System.out.println(e.getMessage());
 			}
 		}
-		
-		
-		
 		return major;
 	}
 }
