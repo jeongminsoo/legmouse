@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        * { /* 전체 선택자 : 모든 태그에 적용 (전체 페이지 디자인 초기화 용도) */
+            margin : 0; /* 밖여백 */
+            padding : 0; /* 안여백 */
+            /* 페이지 내 기본 폰트 설정 */
+            color : saddlebrown;
+        }
+        header, nav, section, footer{
+            width : 500px;  /* 가로길이 */
+            margin : 10px auto;
+            border : 1px solid gray;
+        }
+        header h1 {
+            text-align : center;
+        }
+        /* 수직 메뉴를 수평 메뉴로 변경 */
+        nav ul {overflow : hidden;} /* 수평으로 할 태그의 부모단 */
+            nav ul li {
+                float: left; /* block타입 태그를 수평으로 배치*/
+                list-style: none; /* 목록 형식 제거*/
+                /* padding : 10px 20px; */
+                width : 125px;
+                text-align : center;
+            }
+        section {
+            clear : both;   /* overflow : hidden  을 했으면 생략하기도 함*/
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>OO 주식회사</h1>
+    </header>
+    <nav>
+        <ul>
+            <li>회사소개</li>
+            <li>서비스</li>
+            <li>고객센터</li>
+            <li>공지사항</li>
+        </ul>
+    </nav>
+    <section>
+        <p>
+            계집애들의 때 걱정도 가슴속에 무엇인지 별에도 봅니다. 패, 지나고 이국 별들을 옥 프랑시스 된 멀리 이 거외다. 가을로 걱정도 릴케 까닭입니다. 잔디가 별 보고, 추억과 별빛이 위에 그리워 쉬이 거외다. 소학교 시와 무덤 무성할 이제 다 거외다.
+        </p>
+        <p>
+            비둘기, 내일 경, 다하지 계집애들의 이름과, 어머님, 없이 별 계십니다. 별 별이 언덕 별 버리었습니다. 하나 강아지, 않은 마리아 버리었습니다. 릴케 아침이 계절이 이국 위에도 우는 있습니다. 없이 하나 그러나 추억과 별 패, 이런 계십니다.
+        </p>
+    </section>
+    <footer>
+        <p>서울시 강남구 강남대로94길 13 좋은빌딩 402호</p>
+    </footer>
+</body>
+</html>
