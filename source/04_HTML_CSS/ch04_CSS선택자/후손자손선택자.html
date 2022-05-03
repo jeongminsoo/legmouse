@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        #header, #wrap, #footer{
+            width : 600px; margin : 0 auto; border : 1px solid black;
+        }
+        #header{overflow : hidden;}
+        #header .logo{float : left; padding : 10px 30px 10px 150px;} /* 후손선택자(아래단) */
+        #header>.name{float : left; padding : 20px 30px 10px 70px;} /* 자손선택자(바로 아래단) */
+
+        div p{font-size : 25px;}
+        div > p{color : red; font-size : 16px;}
+        #footer{text-align : center;}
+    </style>
+</head>
+<body>
+    <div id="header">
+        <div class="logo">
+            <h1>LOGO</h1>
+        </div>
+        <div class="name">
+            <h2>OO 주식회사</h2>
+        </div>
+    </div>
+    <div id="wrap">
+        <p>
+            내는 보이는 피가 말이다. 풍부하게 그들에게 보이는 살 위하여서 이상은 이것이다. 그림자는 보는 설산에서 열락의 아니다. 피에 사는가 얼마나 불러 오직 대한 우리는 인생을 못할 교향악이다. 풀이 관현악이며, 착목한는 그것은 뜨고, 얼마나 풀밭에 꾸며 부패뿐이다. 고행을 인생을 영락과 곳이 노년에게서 천고에 풍부하게 끝에 것이다. 청춘의 힘차게 크고 미인을 밝은 풀밭에 든 때문이다. 피어나는 심장은 그러므로 오아이스도 남는 크고 이것이다. 밝은 실로 내려온 얼마나 풀밭에 뭇 피다.
+        </p>
+        <ul>
+            <li><p>내는 보이는 피가 말이다.</p></li>
+            <li><p>내는 보이는 피가 말이다.</p></li>
+            <li><p>내는 보이는 피가 말이다.</p></li>
+        </ul>
+    </div>
+    <div id="footer">
+        <p>서울시 강남구 역삼동 좋은빌딩 402호</p>
+    </div>
+</body>
+</html>

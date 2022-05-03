@@ -1,0 +1,164 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        div#header {
+            width : 1000px;
+            margin : 0 auto;
+            overflow : hidden;
+        }
+        #header .left {
+            width : 150px;
+            height : 150px;
+            background-color : lightgrey;
+            border : 1px solid grey;
+            border-radius : 30px 0;
+            float : left;
+        }
+        #header .center {
+            width : 694px;
+            height : 150px;
+            background-color : lightgrey;
+            border : 1px solid grey;
+            border-radius : 0 0 30px 30px;
+            float : left;
+        }
+        #header .right {
+            width : 150px;
+            height : 150px;
+            background-color : lightgrey;
+            border : 1px solid grey;
+            border-radius : 0 30px;
+            float : right;
+        }
+        div#content {
+            width : 1000px;
+            margin : 0 auto;
+            overflow : hidden;
+        }
+        #content .left {
+            width : 150px;
+            height : 300px;
+            background-color : lightgrey;
+            border : 1px solid grey;
+            border-radius : 0 30px 30px 0;
+            float : left;
+        }
+        #content .center {
+            width : 694px;
+            height : 300px;
+            background-color : lightgrey;
+            border : 1px solid grey;
+            border-radius : 30px;
+            float : left;
+        }
+        #nav ul {overflow : hidden;}
+        #nav ul li {
+            list-style : none;
+            float : left;
+            font-size : 30px;
+            font-weight : bold;
+            margin : 0 50px;
+        }
+        #nav ul li a {
+            text-decoration : none;
+            color : black;
+        }
+        div#academy h2, p{
+            text-align : center;
+            padding : 30px 0 0 0;
+        }
+        div#content .right {
+            width : 150px;
+            height : 300px;
+            background-color : lightgrey;
+            border : 1px solid grey;
+            border-radius : 30px 0 0 30px;
+            float : right;
+        }
+        #content .right ol li:nth-child(10),
+        #content .right ol li:nth-child(11),
+        #content .right ol li:nth-child(12) {
+            color : red;
+        }
+        div#footer {
+            width : 1000px;
+            margin : 0 auto;
+            overflow : hidden;
+        }
+        #footer .left {
+            width : 150px;
+            height : 150px;
+            background-color : lightgrey;
+            border : 1px solid grey;
+            border-radius : 0 30px;
+            float : left;
+        }
+        #footer .center {
+            width : 694px;
+            height : 150px;
+            background-color : lightgrey;
+            border : 1px solid grey;
+            border-radius : 30px 30px 0 0;
+            float : left;
+        }
+        #footer .right {
+            width : 150px;
+            height : 150px;
+            background-color : lightgrey;
+            border : 1px solid grey;
+            border-radius : 30px 0;
+            float : right;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <div class="left"></div>
+        <div class="center"></div>
+        <div class="right"></div>
+    </div>
+    <div id="content">
+        <div class="left"></div>
+        <div class="center">
+            <div id="nav">
+                <ul>
+                    <li><a href="#">menu1</a></li>
+                    <li><a href="#">menu2</a></li>
+                    <li><a href="#">menu3</a></li>
+                </ul>
+            </div>
+            <div id="academy">
+                <h2>자바 개발자 양성과정</h2>
+                <p>
+                    본 과정은 아주 좋다.
+                </p>
+            </div>
+        </div>
+        <div class="right">
+            <ol>
+                <li>태그</li>
+                <li>전체(*)</li>
+                <li>id,class</li>
+                <li>속성</li>
+                <li>후손,자손(>)</li>
+                <li>동위</li>
+                <li>반응</li>
+                <li>상태</li>
+                <li>구조</li>
+                <li>문자</li>
+                <li>링크</li>
+                <li>부정</li>
+            </ol>
+        </div>
+    </div>
+    <div id="footer">
+        <div class="left"></div>
+        <div class="center"></div>
+        <div class="right"></div>
+    </div>
+</body>
+</html>

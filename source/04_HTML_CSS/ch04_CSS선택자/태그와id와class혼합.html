@@ -6,34 +6,39 @@
     <title></title>
     <style>
         div{border : 1px solid gray;}
-        #header{
+        div#header{
             width : 600px;
             margin : 0 auto;
             background-color : #ffd800;
             text-align : center;
             text-decoration : underline;
         }
-        #wrap {
+        div#wrap {
             width : 600px;
             margin : 0 auto;
             background-color : #66dbf6;
             overflow : hidden;
         }
-        #wrap #content{
+        div#wrap #content{
             width : 350px;
             float : left;
             text-align : center;
+            height : 331px;
         }
-        #wrap #side_banner{
+        div#wrap #side_banner{
             width : 246px;
-            float : right;
+            float : left;
             text-align : center;
+            height : 331px;
         }
-        .menu1{
+        #wrap #content ul li.menu1{
             font-size : 1.5em;  /* 글씨 크기 1.5배 크게 설정*/
         }
-        .menu2, .menu4{font-weight : bold;}
-        img {width : 200px;}
+        #wrap #content li.menu2,
+        #wrap #content li.menu4 {
+            font-weight: bold;
+        }
+        #wrap #side_banner img {width : 200px;}
         #footer {
             clear: both; /* float 속성을 제거 역할*/
             width: 600px;
@@ -57,6 +62,11 @@
                 <li class="menu4">menu4</li>
                 <li class="menu1">menu5</li>
             </ul>
+            <ol>
+                <li class="menu1">menu1</li>
+                <li class="menu2">menu2</li>
+                <li class="menu1">menu3</li>
+            </ol>
         </div>
         <div id="side_banner">
             <h2>BANNER</h2><br />
