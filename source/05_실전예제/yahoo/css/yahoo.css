@@ -1,0 +1,38 @@
+﻿/* 전체 초기화 */
+* {
+    margin : 0;
+    padding : 0;
+}
+li {
+    list-style: none;
+}
+a {
+    text-decoration : none;
+}
+
+/* header gnb */
+#header_nav {
+    overflow : hidden;
+    height : 25px;
+    background-color : #2d1152;
+    text-align : center;
+    line-height : 25px;
+}
+
+#header_nav .gnb ul li{
+    float : left;
+    padding : 0 15px;
+}
+
+#header_nav .gnb ul li a{
+    color : white;
+}
+#header_nav .football {
+    float : right;
+    color : white;
+    padding : 0 10px;
+}
+#header_nav .football > img{
+    height : 15px;
+    padding-right : 5px;
+}
