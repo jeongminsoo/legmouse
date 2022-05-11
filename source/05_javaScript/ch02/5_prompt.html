@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        // alert : 팝업창에 띄울 text 입력후 팝업띄우는 함수
+        // prompt : 팝업창에 입력받는 함수
+        // Number(""(빈String)) 의 결과는 0
+        // NaN : Not a Number (숫자가 아님)
+        scoreStr = prompt('점수를 입력하세요', '0~100점 사이');
+        if (scoreStr == null) {
+            alert('점수를 입력하세요');
+        } else {
+            // document.write(scoreStr + '의 타입은 ' + typeof (scoreStr));
+            score = Number(scoreStr);
+            // document.write(score + '의 타입은 ' + typeof (score));
+            if (isNaN(score)) {
+                alert('점수를 입력하세요');
+            } else {
+                result = score > 70 ? "잘했다" : "못했다";
+            }
+            document.write(result);
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

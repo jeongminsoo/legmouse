@@ -1,0 +1,118 @@
+﻿/* 초기화 */
+* {
+    margin : 0;
+    padding : 0;
+}
+a {
+    text-decoration : none;
+    color : black;
+}
+li {
+    list-style : none;
+}
+/* header */
+#header {
+    width : 1000px;
+    margin : 20px auto 40px auto;
+    overflow : hidden;
+}
+
+#header .left_gnb li {
+    width : 100px;
+    text-align : center;
+    float : left;
+    padding : 5px 0;
+    margin-right : 30px;
+    font-weight : bold;
+}
+#header .left_gnb li:first-child {
+    background-color : #fdeada;
+    border : 1px solid gray;
+    box-sizing : border-box;
+}
+#header .right_gnb li {
+    width: 80px;
+    text-align: center;
+    float: right;
+    padding: 5px 0;
+    margin-left : 30px;
+    font-weight: bold;
+}
+
+/* content */
+#content { 
+    width : 1000px;
+    margin : 0px auto;
+    overflow : hidden;
+}
+/* content title */
+#content .title {
+    padding : 5px;
+    font-size : 20px;
+    font-weight : bold;
+    border-bottom : 1px solid gray;
+}
+/* content lnb */
+#content .lnb {
+    float : left;
+    margin : 10px 30px 0 10px;
+}
+#content .lnb ul li {
+    width : 200px;
+    border : 1px solid gray;
+    box-sizing : border-box;
+    padding : 10px 20px;
+}
+#content .lnb ul li:first-child {
+    padding-left : 5px;
+}
+#content .lnb ul li:nth-child(5) {
+    background-color : #fdeada;
+    font-weight : bold;
+}
+/* content main_content */
+#content .main_content {
+    float : left;
+    width : 750px;
+    margin : 10px 0;
+}
+/* main_content lng_title */
+#content .main_content .lng_title {
+    padding : 5px;
+    border : 1px solid gray;
+    box-sizing : border-box;
+}
+/* main_content info */
+#content .main_content .info {
+    border : 1px solid gray;
+    height : 400px;
+    position : relative;
+}
+#content .main_content .info table {
+    width : 500px;
+    margin : 30px auto;
+}
+#content .main_content .info tr {
+    height : 40px;
+}
+
+#content .main_content .info input {
+    width : 100%;
+    height : 20px;
+    outline : none;
+}
+#content .main_content .info input[type="submit"] {
+    width : 45px;
+    position : absolute;
+    bottom : 10%;
+}
+/* footer */
+#footer {
+    width : 950px;
+    height : 40px;
+    margin : 30px auto;
+    border : 1px solid gray;
+    background-color : #fdeada;
+    text-align : center;
+    line-height : 40px;
+}

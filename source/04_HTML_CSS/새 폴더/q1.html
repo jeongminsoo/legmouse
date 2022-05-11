@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="q1.css"
+          rel="stylesheet"
+           type="text/css" />
+    <script>
+        function chk() {
+            if (requ.name.value.length < 2) {
+                alert("이름은 2글자 이상 입력하세요");
+                return false;
+            } else if (requ.id.value.length < 4) {
+                alert("아이디는 4글자 이상 입력하세요");
+                return false;
+            } else if (!requ.pw.value) {
+                alert("비밀번호를 입력하세요")
+                return false;
+            } else if (requ.pw.value != require.pwChk.value) {
+                alert("비밀번호가 다릅니다")
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+    <form name="requ" onsubmit="return chk()">
+        <fieldset>
+            <legend><b>필수입력</b></legend>
+            <table>
+                <tr>
+                    <td>이 름<b>*</b></td>
+                    <td><input type="text" name="name" placeholder="이름은 2글자 이상" required="required" /></td>
+                </tr>
+                <tr>
+                    <td>아이디<b>*</b></td>
+                    <td><input type="text" name="id" placeholder="ID는 4글자 이상" required="required" /></td>
+                </tr>
+                <tr>
+                    <td>비밀번호<b>*</b></td>
+                    <td><input type="password" name="pw" required="required" /></td>
+                </tr>
+                <tr>
+                    <td>비번확인<b>*</b></td>
+                    <td><input type="password" name="pwChk" required="required" /></td>
+                </tr>
+                <tr>
+                    <td>전화<b>*</b></td>
+                    <td>
+                        <input type="tel" name="tel" placeholder="xx-xxx-xxx/000-0000-0000"
+                               pattern="\d{2,3}[ .-]{0,1}\d{3,4}[ .-]{0,1}\d{4}"
+                               required="required" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>email<b>*</b> </td>
+                    <td>
+                        <input type="email" name="email" placeholder="id@domain" 
+                               pattern="\w[a-zA-Z0-9_.]+@[a-zA-Z]+(\.[a-z]+){1,2}"
+                               required="required" />
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+        <fieldset>
+            <legend><b>추가 입력 사항</b></legend>
+            <table>
+                <tr>
+                    <td>결혼유무</td>
+                    <td>
+                        <input type="radio" name="status" value="married" />기혼
+                        <input type="radio" name="status" value="single" />미혼
+                    </td>
+                </tr>
+                <tr>
+                    <td>자식</td>
+                    <td>
+                        <input type="checkbox" name="children" value="son" />아들
+                        <input type="checkbox" name="children" value="daughter" />딸
+                    </td>
+                </tr>
+                <tr>
+                    <td>지역</td>
+                    <td>
+                        <select name="area">
+                            <option>경기</option>
+                            <option>서울</option>
+                            <option>인천</option>
+                            <option>강원</option>
+                            <option>충북</option>
+                            <option>충남</option>
+                            <option>전북</option>
+                            <option>전남</option>
+                            <option>광주</option>
+                            <option>경북</option>
+                            <option>경남</option>
+                            <option>대구</option>
+                            <option>울산</option>
+                            <option>부산</option>
+                            <option>세종</option>
+                            <option>제주</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+        <center>
+            <input type="submit" value="가입" />
+            <input type="reset" value="취소" />
+        </center>
+    </form>
+</body>
+</html>

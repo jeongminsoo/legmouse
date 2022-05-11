@@ -7,7 +7,7 @@
     <script>
         /* frm.id.value는 4글자 이상, frm.pw.value와 frm.pwChk.value는 1글자이상이며, 같아야 한다 */
         function chk() {
-            if (frm.id.value < 4) {
+            if (frm.id.value.length < 4) {
                 alert("아이디는 4글자 이상 입력하세요");
                 frm.id.focus();
                 return false;
