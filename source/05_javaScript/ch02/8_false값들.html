@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        // false : 0, '', NaN, null, undefined
+        var i; // 변수 선언시 초기화 하지 않으면 기본값 undefined으로 초기화
+        document.write(i + ' / ' + Boolean(i) + '<br>');
+        i = 0;
+        document.write(i + ' / ' + Boolean(i) + '<br>');
+        i = Number("a");
+        document.write(i + ' / ' + Boolean(i) + '<br>');
+        i = "";
+        document.write(i + ' / ' + Boolean(i) + '<br>');
+        document.write("<hr>");
+        document.write(("" == false) + " : ==연산자는 양변의 값이 일치할 경우 true<br>");
+        document.write(("" === false) + " : ===연산자는 양변의 값과 자료형이 일치할 경우 true<br>");
+    </script>
+</head>
+<body>
+
+</body>
+</html>

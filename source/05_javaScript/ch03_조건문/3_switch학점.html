@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        // Math.trunc() : 내림
+        var score;
+
+        while (isNaN(score) || score <= 0 || score > 4.5) {
+            score = Number(prompt("학점을 입력하세요", "0~4.5"));
+        }
+        switch (Math.trunc(score / 0.5)) {
+            case 9: case 8: document.write('A학점'); break;
+            case 7: case 6: document.write('B학점'); break;
+            case 5: case 4: document.write('C학점'); break;
+            default:
+                document.write('분발하세요');
+        }
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

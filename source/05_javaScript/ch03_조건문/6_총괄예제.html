@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        function compare() {
+            var num1 = Number(ex.num1.value);
+            var num2 = Number(ex.num2.value);
+            var msg1 = "<h3>첫번째 수가" + (num1 - num2) + "만큼 큽니다</h3>";
+            var msg2 = "<h3>두번째 수가" + (num1 - num2) + "만큼 큽니다</h3>";
+            var msg3 = "<h3>두 수는 같습니다</h3>";
+            var msg4 = msg1.substring(4);
+            msg4 = msg4.substring(0, msg4.indexOf('</h3>'));
+            var msg5 = msg2.substring(4);
+            msg5 = msg5.substring(0, msg5.indexOf('</h3>'));
+            var msg6 = msg3.substring(4, 13);
+            if (ex.num1.value == null || ex.num1.value == "" || isNaN(num1) || ex.num2.value == null || ex.num2.value == "" || isNaN(num2)) {
+                alert('수를 다시 입력하세요');
+                return false;
+            } else {
+                if (num1 > num2) {
+                    alert(msg4);
+                    document.body.innerHTML += msg1;
+                } else if (num1 < num2) {
+                    alert(msg5);
+                    document.body.innerHTML += msg2;
+                } else if (num1 == num2) {
+                    alert(msg6);
+                    document.body.innerHTML += msg3;
+                }
+                ex.num1.value = num1;
+                ex.num2.value = num2;
+                return true;
+            }
+            
+            
+        }
+    </script>
+</head>
+<body>
+    <form name="ex" onsubmit="return compare()">
+        <table>
+            <tr>
+                <td>첫번째수</td>
+                <td><input type="text" name="num1" /></td>
+            </tr>
+            <tr>
+                <td>두번째수</td>
+                <td><input type="text" name="num2" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><center><input type="submit" value="결과" /></center></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

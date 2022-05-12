@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        do {
+            var dan = Number(prompt("원하는 구구단수를 입력하세요", "2단 ~ 9단"));
+            if (isNaN(dan) || dan == "" || dan == null || dan < 2 || dan > 9) {
+                alert("잘못입력하였습니다. 다시 확인해주세요");
+            } else {
+                for (var idx = 1; idx < 10; idx++) {
+                    document.write(dan + " * " + idx + " = " + (dan * idx) + '<br>');
+                }
+                break;
+            }
+
+        } while (true);
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
