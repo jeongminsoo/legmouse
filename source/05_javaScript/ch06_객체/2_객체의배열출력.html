@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        var arr = [1, 2, 300]; // 일반for, for-in, forEach
+        var obj = {
+            'name': '홍길동', 'age': 20};
+
+        for (var idx in arr) {
+            document.write(idx + ' : ' + arr[idx] + '<br>');
+        }
+        for (var key in obj) {
+            document.write(key + ' : ' + obj[key] + '<br>');
+        }
+
+        arr.forEach(function (data, idx) {
+            document.write(idx + ' : ' + data + '<br>');
+        });
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

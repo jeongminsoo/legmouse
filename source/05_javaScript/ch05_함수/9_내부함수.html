@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        // 내부함수 : 함수 내에 선언된 함수
+        // 동일한 이름의 함수와 충돌을 피하기 위함
+        // A
+        function pythagoras(width, height) {
+            function square(x) {
+                return x * x;
+            }
+            return Math.sqrt(square(width) + square(height));
+        }
+    </script>
+    <script>
+        // B
+        function square(w, h, t) {
+            if (w * w + h * h == t * t) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    </script>
+    <script>
+        // I
+        document.write(pythagoras(3, 4) + '<br>');
+        document.write(square(3, 4, 5) + '<br>');
+    </script>
+</head>
+<body>
+
+</body>
+</html>

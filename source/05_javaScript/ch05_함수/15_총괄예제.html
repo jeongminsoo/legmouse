@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        var arr = ["background : url('img/img01.png') no-repeat; color : white;",
+                    "background : url('img/img02.png') no-repeat; color : pink;",
+                    "background : url('img/img03.png') no-repeat; color : yellow;"]
+        var s = 0;
+        var id = setInterval(function () {
+            document.write(new Date() + '<br>');
+            document.body.style = arr[s % 3];
+            document.body.style.backgroundSize = '100%';
+            s++;
+        }, 1000);
+        setTimeout(function () {
+            clearInterval(id);
+        }, 10000);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

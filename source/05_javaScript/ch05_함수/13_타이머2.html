@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        var id = setInterval(function () {
+                    document.write(new Date() + '<br>');
+        }, 1000);
+
+        setTimeout(function () {
+            clearInterval(id);
+            document.write('DONE');
+        }, 10000);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

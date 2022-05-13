@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        function sumAll() {
+            var result = 0;
+            if (arguments.length == 0) {
+                result -= 999;
+                return result;
+            } else {
+                for (var idx in arguments) {
+                    result += arguments[idx];
+                }
+                return result;
+            }
+        }
+
+        document.write('sumAll() : ' + sumAll() + '<br>');
+        document.write('sumAll(1) : ' + sumAll(1) + '<br>');
+        document.write('sumAll() : ' + sumAll(1, 2, 3, 4, 5) + '<br>');
+    </script>
+</head>
+<body>
+
+</body>
+</html>
