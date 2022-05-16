@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        String.prototype.replaceA = function (oldStr, newStr) {
+            return this.split(oldStr).join(newStr);
+        };
+        var str = 'abc@abcd@abc';
+        document.write('@를 -로 : ' + str.replaceA('@', '-') + '<br>');
+        document.write('@를 없애기 : ' + str.replaceA('@', '') + '<br>');
+        document.write('글씨 길이 : ' + str.length + '<br>'); // 함수가 아니고 속성
+        document.write('글씨 연결 : ' + str.concat(str) + '<br>');
+        document.write('3번째 글자부터 5개 글자 추출 : ' + str.substr(3, 5) + '<br>');
+        document.write('3번째부터 5번째 앞까지 글자 추출: ' + str.substring(3, 5) + '<br>');
+        document.write('글씨가 처음으로 일치하는 위치 : ' + str.indexOf('@') + '<br>');
+        document.write('글씨가 마지막으로 일치하는 위치 : ' + str.lastIndexOf('@') + '<br>');
+        document.write('없는 문자의 값 표현 : ' + str.indexOf('X') + '<br>');
+        document.write('___abc___에서 양쪽 space없애기 : ' + '   abc   '.trim() + '<br>');
+        document.write('   abc   abc   '.replaceA(' ', '') + '<br>');
+        document.write('대문자로 변환 : ' + str.toUpperCase() + '<br>');
+        document.write('소문자로 변환 : ' + str.toLowerCase() + '<br>');
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        var student = { name: '홍길동', age: 25 };
+        document.write(student.name + ' ' + student['name']);
+        student.name = '김길동';
+        document.write(student.name + ' ' + student['name']);
+        student['name'] = '신길동';
+        document.write(student.name + ' ' + student['name']);
+        student.kor = 100; // 객체 속성 추가 가능
+        student.mat = 99;
+        student.hobby = '프로그래밍 구현';
+        
+        student.toString = function () {
+            var output = '';
+            for (var key in this) {
+                if (key != 'toString') {
+                    output += key + ' : ' + this[key] + '<br>';
+                }
+            }
+            return output;
+        };
+        document.write('<hr>' + student + '<br>');
+        delete (student.hobby);
+        delete (student.age);
+        document.write('객체 속성 제거 후 : ' + student + '<br>');
+    </script>
+</head>
+<body>
+
+</body>
+</html>

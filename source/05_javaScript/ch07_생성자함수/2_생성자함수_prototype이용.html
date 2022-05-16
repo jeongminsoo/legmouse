@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        function Student(name, kor, mat, eng, sci) {
+            this.name = name;
+            this.kor = kor;
+            this.mat = mat;
+            this.eng = eng;
+            this.sci = sci;
+        }
+        Student.prototype.getSum = function () {
+            return this.kor + this.mat + this.eng + this.sci;
+        };
+        Student.prototype.getAvg = function () {
+            return this.getSum() / 4;
+        };
+        Student.prototype.toString = function () {
+            var output = '';
+            for (var key in this) {
+                if (key != 'toString' && key != 'getSum' && key != 'getAvg') {
+                    output += key + ' : ' + this[key] + '<br>';
+                } else if (key == 'getSum') {
+                    output += '총 점 : ' + this[key]() + '<br>';
+                } else if (key == 'getAvg') {
+                    output += '평 균 : ' + this[key]() + '<br>';
+                }
+            }
+            return output;
+        };
+        var student = [new Student('홍길동', 100, 100, 100, 100),
+                       new Student('마길동', 90, 90, 90, 90),
+                       new Student('김길동', 95, 95, 95, 95),
+                       new Student('지울애', 90, 90, 90, 90)
+        ];
+
+        student.forEach(function (data, idx) {
+            document.write(idx + '번째' + '<br>' + data + '<br>');
+        })
+    </script>
+</head>
+<body>
+
+</body>
+</html>

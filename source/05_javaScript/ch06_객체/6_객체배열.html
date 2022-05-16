@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        var students = [{ name: '홍길동', kor: 99, mat: 90, eng: 90, sci: 100 },
+                        { name: '김길동', kor: 95, mat: 91, eng: 89, sci: 88 }
+        ];
+        students.push({ name: '신길동', kor: 89, mat: 92, eng: 93, sci: 90 });
+        students.push({ name: '마길동', kor: 90, mat: 95, eng: 94, sci: 98 });
+        students.push({ name: '최길동', kor: 81, mat: 72, eng: 91, sci: 97 });
+        for (var idx in students) {
+            students[idx].getSum = function () {
+                return this.kor + this.mat + this.eng + this.sci;
+            };
+        }
+        for (var idx in students) {
+            students[idx].getAvg = function () {
+                return this.getSum() / 4;
+            };
+            students[idx].toString = function () {
+                var output = '';
+                for (var key in this) {
+                    if (key != 'toString' && key != 'getSum' && key != 'getAvg') {
+                        output += key + ' : ' + this[key] + '<br>';
+                    } else if (key == 'getSum' || key == 'getAvg') {
+                        output += key.substring(3).toUpperCase() + ' : ' + this[key]() + '<br>';
+                    }
+                }
+                return output;
+            }
+        }
+        students.forEach(function (data) {
+            document.write(data);
+        });
+
+        document.write('<hr>');
+        for (var idx = 0; idx < students.length; idx++) {
+            document.write(students[idx]);
+        }
+
+        for (var key in students) {
+            var output = '';
+            output += students[key];
+            
+        }
+        document.write('<hr>');
+        document.write(output);
+        function replaceAll(str, oldStr, newStr) {
+            var splitStr = str.split(oldStr);
+            var joinStr = splitStr.join(newStr);
+            return joinStr;
+        }
+        alert(replaceAll(output, '<br>', '\n'));
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

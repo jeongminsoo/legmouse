@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        function check() {
+            var nameVal = frm.name.value;
+            var pwVal = frm.pw.value;
+            var pwChkVal = frm.pwChk.value;
+
+            var nameChk = /[0-9!@#$%^&*()-_+=|\{}\{\]]/;
+            var chkEng = /[a-zA-Z]/;
+            var chkNum = /[0-9]/;
+            var chkSpc = /[!@#$%^&*()-_+=|\\{}\[\]]/;
+
+            // 이름 유효성 검사
+            if (nameChk.test(nameVal)) {
+                alert('이름은 한글, 영문자만 가능합니다.');
+                return false;
+            }
+            // 비번 유효성 검사
+            if (pwVal.length < 4) {
+                alert('비밀번호는 4글자 이상 가능합니다.');
+                return false;
+            } else if (!chkEng.test(pwVal) || !chkNum.test(pwVal) || !chkSpc.test(pwVal)) {
+                alert('비밀번호는 영문, 숫자, 특수문자를 포함해야합니다.');
+                return false;
+            } else if (pwVal != pwChkVal) {
+                alert('비밀번호가 다릅니다.');
+                return false;
+            }
+        }
+    </script>
+    <style>
+        * {
+            margin : 0;
+            padding : 0;
+        }
+
+        form {
+            width : 300px;
+            margin : 0 auto;
+            border : 2px solid #385d81;
+        }
+        table {
+            width : 300px;
+            margin : 10px auto;
+            text-align : center;
+        }
+        td {
+            height : 20px;
+            padding : 10px 0;
+        }
+        input[type="submit"],
+        input[type="reset"] {
+            background-color : #385d81;
+            color : white;
+            border-radius : 5px 5px;
+            width : 80px;
+            height : 30px;
+            margin : 10px 5px;
+        }
+        table input {
+            border : 2px solid #385d81;
+            height : 100%;
+            width : 80%;
+            padding : 2px;
+        }
+    </style>
+</head>
+<body>
+    <form name="frm" onsubmit="return check()">
+        <table>
+            <tr>
+                <td>이 름</td>
+                <td><input type="text" name="name" placeholder="특수문자와 숫자 못와" /></td>
+            </tr>
+            <tr>
+                <td>메 일</td>
+                <td><input type="email" name="email" pattern="\w[a-zA-Z0-9_.]+@[a-zA-Z]+(\.[a-z]+){1,2}" title="이메일 형식을 확인하세요 / abc@abc.com" placeholder="메일형식에 맞추세요" /></td>
+            </tr>
+            <tr>
+                <td>비밀번호</td>
+                <td><input type="password" name="pw" /></td>
+            </tr>
+            <tr>
+                <td>비번확인</td>
+                <td><input type="password" name="pwChk" /></td>
+            </tr>
+        </table>
+        <center>
+            <input type="submit" value="회원가입" />
+            <input type="reset" value="취소" />
+            <input type="submit" value="로그인" />
+        </center>
+    </form>
+</body>
+</html>

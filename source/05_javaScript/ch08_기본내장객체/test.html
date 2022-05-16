@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        var str1 = 'a!aa';
+        var str = 'a!a2';
+        var chkEng = /[a-zA-Z]/;
+        var chkNum = /[0-9]/;
+        var chkSpc = /[!@#$%^&*()-_+=|\\{}\[\]]/;
+        String.prototype.check = function () {
+            if (this.length < 4) {
+                alert('비밀번호는 4글자 이상 가능합니다.');
+                return false;
+            } else if (!chkEng.test(this) || !chkNum.test(this) || !chkSpc.test(this) || !chkEng.test(this) || !chkNum.test(this) || !chkSpc.test(this)) {
+                alert('비밀번호는 영문, 숫자, 특수문자를 포함해야합니다.');
+                return false;
+            }
+            return true;
+        }
+
+        document.write(chkEng.test(str) + '<br>');
+        document.write(chkNum.test(str) + '<br>');
+        document.write(chkSpc.test(str) + '<br>');
+        document.write(chkEng.test(str1) + '<br>');
+        document.write(chkNum.test(str1) + '<br>');
+        document.write(chkSpc.test(str1) + '<br>');
+        document.write(str1.check());
+    </script>
+</head>
+<body>
+
+</body>
+</html>
