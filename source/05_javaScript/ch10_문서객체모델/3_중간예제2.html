@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        function locate(num) {
+            if (num == 1) {
+                location.href = 'http://www.naver.com';
+            } else if (num == 2) {
+                location.href = 'http://www.daum.net';
+            } else if (num == 3) {
+                location.href = 'http://www.google.com';
+            } else if (num == 4) {
+                location.href = 'http://www.youtube.com';
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>메뉴</h1>
+    <button onclick="locate(1)">네이버</button>
+    <button onclick="locate(2)">다음</button>
+    <button onclick="locate(3)">구글</button>
+    <button onclick="locate(4)">유튜브</button>
+</body>
+</html>

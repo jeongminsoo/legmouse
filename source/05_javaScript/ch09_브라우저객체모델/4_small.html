@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        var child;
+        function openBig() {
+            child = open('4_big.html', '', 'width=500, height=630, left=200, top=200');
+            if (!child) {
+                alert('팝업 차단을 해제해주세요');
+            }
+        }
+        function closeBig() {
+            child.close();
+        }
+    </script>
+</head>
+<body>
+    <img src="img/small.jpg" alt="작은그림" onmouseover="openBig()" onmouseout="closeBig()" />
+</body>
+</html>
