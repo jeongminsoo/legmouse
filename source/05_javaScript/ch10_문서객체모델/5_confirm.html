@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        var idConfirm;
+        window.onload = function () {
+            idConfirm = document.getElementById('idConfirm');
+            var id = opener.document.getElementById('id').value;
+            idConfirm.setAttribute('value', id);
+        }
+        function check() {
+            idConfirm = document.getElementById('idConfirm').value;
+            if (idConfirm == '') {
+                alert('아이디를 입력하세요');
+            } else {
+                var checkText = document.getElementById('checkText');
+                checkText.innerHTML = idConfirm + '은(는) 사용 가능한 아이디 입니다.';
+            }
+        }
+        function useId() {
+            opener.document.getElementById('id').value = document.getElementById('idConfirm').value;
+            opener.document.getElementById('checkConfirm').value = 1;
+            close();
+        }
+    </script>
+</head>
+<body>
+    <p>ID <input type="text" id="idConfirm" /> <button onclick="check()">체크</button></p>
+    <p id="checkText"></p>
+    <p><button onclick="useId()">아이디사용</button></p>
+</body>
+</html>

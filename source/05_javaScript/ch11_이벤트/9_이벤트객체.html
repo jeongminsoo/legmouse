@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        window.onkeyup = function () {
+            document.body.innerHTML += (event.keyCode-96) + ' : ' + event.keyCode + '<br>';
+        };
+        window.onclick = function () {
+            document.body.innerHTML = '스크린 좌표 : ' + event.screenX + ', ' + event.screenY + '<br>';
+            document.body.innerHTML += 'offset 좌표 : ' + event.offsetX + ', ' + event.offsetY + '<br>';
+        };
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

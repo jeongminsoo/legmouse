@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        * {
+            margin : 0;
+            padding : 0;
+        }
+        table {
+            width : 300px;
+            margin : 10px auto;
+            background-color : green;
+        }
+        td {
+            width : 100px;
+            height : 100px;
+            box-sizing : border-box;
+            text-align : center;
+            background-color : white;
+        }
+    </style>
+    <script>
+        var num;
+        var tds;
+        window.onkeyup = function () {
+            tds = document.querySelectorAll('td');
+            for (var idx = 0; idx < tds.length; idx++) {
+                tds[idx].style.backgroundColor = 'white';
+                num = Number(tds[idx].innerHTML);
+                if ((event.keyCode - 96) == num) {
+                    tds[idx].style.backgroundColor = 'yellow';
+                } else if ((event.keyCode - 48) == num) {
+                    tds[idx].style.backgroundColor = 'red';
+                }
+            }
+        };
+    </script>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>0</td>
+            <td>1</td>
+            <td>2</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+        </tr>
+    </table>
+</body>
+</html>

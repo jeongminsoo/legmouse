@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        #wrap {
+            width: 450px;
+            margin: 0 auto;
+        }
+
+        #wrap h1 {
+            color: red;
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        #wrap h3 {
+            padding: 20px;
+            margin: 10px;
+            border: 1px solid red;
+            text-align: center;
+            border-radius: 10px;
+            font-size: .9em;
+            cursor : pointer;
+        }
+    </style>
+    <script>
+        // parent와 child 간의 데이터 통신
+        // opener : 부모단 웹 페이지의 호칭
+        window.onload = function () {
+            var parentData = document.getElementById('parentData');
+            var name = opener.document.getElementById('name').value;
+            var date = opener.document.getElementById('date').value;
+            if (date == '') {
+                parentData.innerHTML = '넘어온 이름 : ' + name + ' 날짜 : 선택안함';
+            } else {
+                parentData.innerHTML = '넘어온 이름 : ' + name + ' 날짜 : ' + date;
+            }
+            var modifyName = document.getElementById('modifyName');
+            modifyName.setAttribute('value', name);
+
+        };
+        function infoSet(str) {
+            opener.document.getElementById('name').value = document.getElementById('modifyName').value
+            opener.document.getElementById('part').innerHTML = str;
+            close();
+        }
+    </script>
+</head>
+<body>
+    <div id="wrap">
+        <h1>인사정보시스템</h1>
+        <hr />
+        <h2 id="parentData"></h2>
+        <h2>이름 수정 가능 <input type="text" id="modifyName" /></h2>
+        <hr />
+        <h3 onclick="infoSet('인사')">인사로하고 닫기</h3>
+        <h3 onclick="infoSet('재무')">재무로하고 닫기</h3>
+        <h3 onclick="infoSet('총무')">총무로하고 닫기</h3>
+        <h3 onclick="infoSet('개발')">개발로하고 닫기</h3>
+    </div>
+</body>
+</html>
