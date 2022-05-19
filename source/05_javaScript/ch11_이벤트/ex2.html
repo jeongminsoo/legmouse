@@ -7,20 +7,19 @@
     <script>
         var imgOut = ['img/0out.jpg', 'img/1out.jpg', 'img/2out.jpg', 'img/3out.jpg'];
         var imgOver = ['img/0over.jpg', 'img/1over.jpg', 'img/2over.jpg', 'img/3over.jpg']
-
+        var btnImg = document.querySelectorAll('button');
         window.onload = function () {
-            var btnImg = document.querySelectorAll('button');
             for (var idx in btnImg) {
                 btnImg[idx].innerHTML = '<img src="' + imgOut[idx] + '" />';
             }
         };
 
-        function imgOver() {
+        function overImg() {
             for (var i in btnImg) {
                 btnImg[i].innerHTML = '<img src="' + imgOVer[i] + '" />';
             }
         }
-        function imgOut() {
+        function outImg() {
             for (var j in btnImg) {
                 btnImg[j].innerHTML = '<img src="' + imgOut[j] + '" />';
             }
@@ -28,9 +27,9 @@
     </script>
 </head>
 <body>
-    <button onmouseover="imgOver()" onmouseout="imgOut()"></button>
-    <button onmouseover="imgOver()" onmouseout="imgOut()"></button>
-    <button onmouseover="imgOver()" onmouseout="imgOut()"></button>
-    <button onmouseover="imgOver()" onmouseout="imgOut()"></button>
+    <button onmouseover="overImg()" onmouseout="outImg()"></button>
+    <button onmouseover="overImg()" onmouseout="outImg()"></button>
+    <button onmouseover="overImg()" onmouseout="outImg()"></button>
+    <button onmouseover="overImg()" onmouseout="outImg()"></button>
 </body>
 </html>

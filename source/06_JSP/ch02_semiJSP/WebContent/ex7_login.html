@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script>
+		window.onload = function () {
+			document.querySelector('form').onsubmit = function () {
+				var name = document.querySelector('input[name="name"]');
+				var id = document.querySelector('input[name="id"]');
+				var pw = document.querySelector('input[name="pw"]');
+				if (!name.value) {
+					alert('이름을 입력하세요');
+					name.focus();
+					return false;
+				} else if (!id.value) {
+					alert('아이디를 입력하세요');
+					id.focus();
+					return false;
+				} else if (!pw.value) {
+					alert('패스워드를 입력하세요');
+					pw.focus();
+					return false;
+				}
+			};
+		};
+	</script>
+</head>
+<body>
+	<form action="ex7_loginResult.jsp" method="post">
+		<table>
+			<tr>
+				<td>이 름 </td><td><input type="text" name="name" ></td>
+			</tr>
+			<tr>
+				<td>아이디 </td><td><input type="text" name="id" ></td>
+			</tr>
+			<tr>
+				<td>패스워드 </td><td><input type="password" name="pw" ></td>
+			</tr>
+		</table>
+		<br>
+		<input type="submit" value="로그인">
+	</form>
+</body>
+</html>
