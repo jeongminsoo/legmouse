@@ -1,36 +1,34 @@
-package com.lec.ex;
+package com.mega.exam;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-//@WebServlet(name = "HelloWorld", urlPatterns = { "/HW" })
-public class Ex1_HelloWorld extends HttpServlet {
+@WebServlet("/Exam2")
+public class Exam2 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("doGet호출");
+		String name = request.getParameter("name");
+		String address = request.getParameter("address");
 		response.setContentType("text/html; charset=utf-8");
-		PrintWriter out = response.getWriter(); // 스트림 객체 생성
-		out.println("<html>");
-		out.println("<head>");
-		out.println("<style>");
-		out.println("h1 { color : blue;}");
-		out.println("</style>");
-		out.println("</head>");
-		out.println("<body>");
-		out.println("<h1>안녕하세요. 첫 servlet 예제입니다</h1>");
-		out.println("</body>");
-		out.println("</html>");
+		PrintWriter out = response.getWriter();
+		if (name == "" || address == "") {
+			out.println("<h2>이름 또는 주소를 입력하세요</h2>");
+		} else {
+			out.println("<h2>이름은 " + name + "입니다</h2>");
+			out.println("<h2>주소는 " + address + "입니다</h2>");
+		}
 		out.close();
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("doPost호출");
+		request.setCharacterEncoding("utf-8");
 		doGet(request, response);
 	}
 
