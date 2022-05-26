@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+#wrap {
+	width : 450px;
+	margin : 10px auto;
+	border : 1px solid darkblue;
+	padding :20px;
+}
+#title{
+	width : 430px;            	margin : 10px auto;
+	padding-bottom : 20px;     	border-bottom : 1px solid darkblue;
+	color : darkblue;          	font-size : 1.5em;
+	text-align : center;       	font-weight : bold;
+}
+#wrap table{
+	margin : 0 auto;
+	color : darkblue;
+}
+#wrap table tr { height : 40px; }
+#wrap table th{
+	width : 120px;
+	color : black;
+	text-align : center;
+}
+#wrap table td { width : 300px; }
+.name, .id, .pw, .pwChk, .birth, .email, .mailSend {
+	border : 1px solid darkblue;
+	height : 20px;
+	width : 90%;
+	padding : 3px;
+}
+.mailSend  { height : 60px; }
+.btn {
+	color: white;        	background: darkblue;
+	border:0;               outline: none;
+	width:32%;              padding:5px 0; 
+	cursor:pointer;
+}

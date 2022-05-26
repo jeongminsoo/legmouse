@@ -1,0 +1,2 @@
+지시자를 통한  include는 ContextPath 변수를 중복 사용 불가
+액션태그를 통한 include는 ContextPath 변수를 중복 사용 가능
