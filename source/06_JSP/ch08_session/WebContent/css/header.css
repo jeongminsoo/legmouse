@@ -1,0 +1,28 @@
+@charset "UTF-8";
+header {
+	background-color : black;
+	min-width: 1000px;
+	height : 100px;
+	line-height : 100px;
+}
+header #logo {
+	float : left;
+}
+header ul li a {
+			text-decoration : none;
+			color : white;
+			font-weight : bold;
+			font-size : 1.2em;
+}
+header ul {
+	overflow : hidden;
+	margin : 0 auto;
+	color : white;
+}
+header ul li {
+	float : right;
+	padding : 10px 40px;
+	font-weight : bold;
+	font-size : 1.2em;
+	list-style : none;
+}

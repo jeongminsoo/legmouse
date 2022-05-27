@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+<body>
+	<form action="step6.jsp">
+		<table>
+			<tr>
+				<th><label for="stNum">학번</label></th>
+				<td><input type="text" name="stNum" class="stNum" id="stNum" required="required"></td>
+			</tr>
+			<tr>
+				<th><label for="name">이름</label></th>
+				<td><input type="text" name="name" class="name" id="name" required="required"></td>
+			</tr>
+			<tr>
+				<th>학년</th>
+				<td><input type="number" name="grade" required="required" min="1" max="4"></td>
+			</tr>
+			<tr>
+				<th>학과</th>
+				<td>
+					<select name="major" size="1">
+						<option value="DB">DB</option>
+						<option value="JAVA">JAVA</option>
+						<option value="Oracle">Oracle</option>
+						<option value="JS">JS</option>
+						<option value="JSP">JSP</option>
+						<option value="Spring">Spring</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<th>점수</th>
+				<td><input type="number" name="score" max="100"></td>
+			</tr>
+			<tr>
+				<td colspan="2"><input type="submit" value="입력"></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

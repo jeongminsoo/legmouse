@@ -1,0 +1,64 @@
+@charset "UTF-8";
+#login_wrap {
+	width : 430px;
+	margin : 100px auto;
+	border : 1px solid black;
+	padding : 50px 100px;
+}
+#title {
+	text-align : center;
+	margin : 10px auto;
+	padding-bottom : 20px;
+	border-bottom : 1px solid black;
+	font-size : 1.5em;
+	font-weight : bold;
+}
+#login_wrap table {
+	margin : 0 auto;
+	text-align : center;
+}
+#login_wrap table tr {
+	height : 40px;
+}
+#login_wrap table th {
+	width : 120px;
+	color : black;
+	padding-left : 10px;
+}
+#login_wrap table td {
+	width:300px;
+}
+#id, #pw {
+	border: 1px solid black;
+	width: 95%;
+	padding: 3px;
+}
+#login_wrap table tr #findIdPw {
+	height : 20px;
+	text-align : right;
+	font-size : 0.8em;
+	font-weight : bold;
+	color : black;
+}
+#login_wrap table tr #findIdPw:hover {
+	cursor : pointer;
+}
+#login_join {
+	text-align : center;
+	color : #3F3F48;
+	font-size : 0.9em;
+}
+#login_join a {
+	text-decoration : none;
+	color : #3F3F48;
+	font-weight : bold;
+}
+.loginBtn {
+	color : #ffffff;
+	background-color : black;
+	border-style : none;
+	outline : none;
+	width : 75%;
+	height : 100%;
+	padding : 3px;
+}
