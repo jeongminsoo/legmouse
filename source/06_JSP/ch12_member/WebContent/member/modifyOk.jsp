@@ -27,14 +27,34 @@
 		MemberDto member = (MemberDto)session.getAttribute("member");
 		MemberDao dao = MemberDao.getInstance();
 		String oldPw = request.getParameter("oldPw");
+		String sessionPw = null;
+		if (member != null) {
+			sessionPw = member.getPw();
+		}
 		
-		if (member.getPw().equals(oldPw)) {
-			dao.modifyMember(dto);
+		
+		if (sessionPw.equals(oldPw)) {
+			if (dto.getPw() == null) {
+				dto.setPw(sessionPw);
+			}
+			int result = dao.modifyMember(dto);
+			if (result == MemberDao.SUCCESS) {
+				session.setAttribute("member", dto);
 	%>
-			<script>
-				alert("회원 정보가 수정되었습니다");
-				location.href="modify.jsp";
-			</script>
+				<script>
+					alert("회원 정보가 수정되었습니다");
+					location.href="main.jsp";
+				</script>
+		<%
+			} else {
+		%>
+				<script>
+					alert("회원 정보 수정에 실패하였습니다.");
+					location.href="modify.jsp";
+				</script>
+		<%
+			}
+		%>
 	<%	
 		} else {
 	%>
