@@ -1,0 +1,44 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+	String conPath = request.getContextPath();
+	if (session.getAttribute("member") != null) {
+		response.sendRedirect("main.jsp");
+	}
+%>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link href="<%=conPath%>/css/style.css" rel="stylesheet">
+</head>
+<body>
+	<form action="loginOk.jsp" method="post">
+		<table>
+			<caption>로그인</caption>
+			<tr>
+				<th><label for="id">아이디</label>
+				<td>
+					<input type="text" id="id" name="id" value="<%
+						String id = (String)session.getAttribute("id");
+						if (id != null) {
+							out.println(id);
+						}%>">
+				</td>
+			</tr>
+			<tr>
+				<th><label for="pw">비밀번호</label></th>
+				<td><input type="password" id="pw" name="pw"></td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<input type="submit" value="로그인">
+					<input type="button" value="회원가입" onclick="location.href='join.jsp'">
+				</td>
+			</tr>
+		</table>
+		
+	</form>
+</body>
+</html>
