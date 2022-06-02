@@ -12,22 +12,20 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-public class FriendDao {
+public class FriendDaoSearch {
 
 	public static final int SUCCESS = 1;
 	public static final int FAIL = 0;
-	public static final int SEARCH_SUCCESS = 1;
-	public static final int SEARCH_FAIL = 0;
 	
-	public FriendDao() {
+	public FriendDaoSearch() {
 		
 	}
 	
-	private static FriendDao instance;
+	private static FriendDaoSearch instance;
 	
-	public static FriendDao getInstance() {
+	public static FriendDaoSearch getInstance() {
 		if (instance == null) {
-			instance = new FriendDao();
+			instance = new FriendDaoSearch();
 		}
 		
 		return instance;
@@ -205,5 +203,143 @@ public class FriendDao {
 		}
 		
 		return result;
+	}
+	public ArrayList<FriendDto> SearchPhone(String phone) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		ArrayList<FriendDto> friends = new ArrayList<FriendDto>();
+		
+		String sql = "SELECT * FROM FRIEND WHERE PHONE LIKE '%'||?||'%'";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, phone);
+			rs = pstmt.executeQuery();
+			
+			if (rs.next()) {
+				do {
+					int no = rs.getInt("no");
+					String name = rs.getString("name");
+					phone = rs.getString("phone");
+					
+					friends.add(new FriendDto(no, name, phone));
+				} while (rs.next());
+			}
+		
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (conn != null) {
+					conn.close();
+				}
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+			}
+			
+		}
+		
+		return friends;
+	}
+	
+	public ArrayList<FriendDto> SearchName(String name) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		ArrayList<FriendDto> friends = new ArrayList<FriendDto>();
+		
+		String sql = "SELECT * FROM FRIEND WHERE NAME LIKE '%'||?||'%'";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, name);
+			rs = pstmt.executeQuery();
+			
+			if (rs.next()) {
+				do {
+					int no = rs.getInt("no");
+					name = rs.getString("name");
+					String phone = rs.getString("phone");
+					
+					friends.add(new FriendDto(no, name, phone));
+				} while (rs.next());
+			}
+		
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (conn != null) {
+					conn.close();
+				}
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+			}
+			
+		}
+		
+		return friends;
+	}
+	
+	public ArrayList<FriendDto> SearchFull(String name, String phone) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		ArrayList<FriendDto> friends = new ArrayList<FriendDto>();
+		
+		String sql = "SELECT * FROM FRIEND WHERE NAME LIKE '%'||?||'%' AND PHONE LIKE '%'||?||'%'";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, name);
+			pstmt.setString(2, phone);
+			rs = pstmt.executeQuery();
+			
+			if (rs.next()) {
+				do {
+					int no = rs.getInt("no");
+					name = rs.getString("name");
+					phone = rs.getString("phone");
+					
+					friends.add(new FriendDto(no, name, phone));
+				} while (rs.next());
+			}
+		
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (conn != null) {
+					conn.close();
+				}
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+			}
+			
+		}
+		
+		return friends;
 	}
 }
