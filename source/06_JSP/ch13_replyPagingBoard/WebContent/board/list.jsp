@@ -45,7 +45,7 @@
 					out.println("<tr><td>" + dto.getNum() + "</td><td>" + dto.getWriter() + "</td>");
 					out.println("<td class='left'>");
 					if (dto.getRe_indent() > 0) {
-						int width = dto.getRe_indent();
+						int width = dto.getRe_indent()-1;
 						String re = "　";
 						for (int i = 0; i < width; i++) {
 							out.print(re);	

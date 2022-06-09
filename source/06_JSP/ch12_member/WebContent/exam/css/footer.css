@@ -1,0 +1,33 @@
+@charset "UTF-8";
+* {
+	margin : 0;
+	padding : 0;
+}
+footer {
+	min-width: 1000px;
+	background-color : black;
+	height : 135px;
+}
+footer #logo {
+	margin-left : 20px;
+}
+footer ul {
+	overflow : hidden;
+	height : 20px;
+}
+footer ul li {
+	color : white;
+	list-style : none;
+	float : left;
+	font-size : 0.9em;
+	padding : 0 10px;
+}
+footer ul li:nth-child(2) {
+	border-left : 1px solid white;
+	border-right : 1px solid white;
+}
+footer #copyright {
+	color : white;
+	margin : 5px;
+	font-size : 0.9em;
+}
