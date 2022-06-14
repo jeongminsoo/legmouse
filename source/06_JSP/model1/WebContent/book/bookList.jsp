@@ -12,6 +12,8 @@
 	<link href="<%=conPath%>/css/style.css" rel="stylesheet">
 </head>
 <body>
+<jsp:include page="../main/header.jsp"/>
+<div id="content_form">
 	<table>
 	<tr>
 	<%
@@ -76,5 +78,7 @@
 			}
 		%>
 	</div>
+	</div>
+	<jsp:include page="../main/footer.jsp"/>
 </body>
 </html>
