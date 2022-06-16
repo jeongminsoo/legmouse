@@ -9,8 +9,8 @@
 	<title>Insert title here</title>
 </head>
 <body>
-	<form action="ex11_visitNumChoose.jsp">
-		방문횟수 <input type="number" name="visitNum" required="required">
+	<form action="ex1_encoding.jsp" method="post">
+		이름 <input type="text" name="name"><br>
 		<input type="submit">
 	</form>
 </body>

@@ -9,9 +9,11 @@
 	<title>Insert title here</title>
 </head>
 <body>
-	<form action="ex11_visitNumChoose.jsp">
-		방문횟수 <input type="number" name="visitNum" required="required">
-		<input type="submit">
-	</form>
+	<c:set var="num" value="1234567.8"/>
+	<p>num : ${num }</p>
+	<fmt:formatNumber value="${num }" groupingUsed="true"/><br>
+	<fmt:formatNumber value="${num }" pattern="#,###.00"/>
+	<c:set var="num" value="3.16"/>
+	<fmt:formatNumber value="${num }" pattern="#.#"/>
 </body>
 </html>
