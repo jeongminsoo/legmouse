@@ -100,11 +100,12 @@ public class BoardDao {
 				String 		bcontent	= rs.getString("bcontent");
 				Timestamp 	bdate		= rs.getTimestamp("bdate");
 				int 		bhit		= rs.getInt("bhit");
+				int			bgroup		= rs.getInt("bgroup");
 				int 		bstep		= rs.getInt("bstep");
 				int			bindent		= rs.getInt("bindent");
 				String 		bip			= rs.getString("bip");
 				
-				dtos.add(new BoardDto(bid, bname, btitle, bcontent, bdate, bhit, bstep, bindent, bip));
+				dtos.add(new BoardDto(bid, bname, btitle, bcontent, bdate, bhit, bgroup, bstep, bindent, bip));
 			}
 			
 		} catch (SQLException e) {
@@ -165,20 +166,21 @@ public class BoardDao {
 	}
 	
 	// 글 수정
-	public int modifyBoard(int bid, String btitle, String bcontent, String bip) {
+	public int modifyBoard(int bid, String bname, String btitle, String bcontent, String bip) {
 		int result = FAIL;
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		
-		String sql = "UPDATE BOARD SET BTITLE = ?, BCONTENT = ?, BIP = ? WHERE BID = ?";
+		String sql = "UPDATE BOARD SET BNAME = ?, BTITLE = ?, BCONTENT = ?, BIP = ? WHERE BID = ?";
 		try {
 			conn = ds.getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, btitle);
-			pstmt.setString(2, bcontent);
-			pstmt.setString(3, bip);
-			pstmt.setInt(4, bid);
+			pstmt.setString(1, bname);
+			pstmt.setString(2, btitle);
+			pstmt.setString(3, bcontent);
+			pstmt.setString(4, bip);
+			pstmt.setInt(5, bid);
 			
 			result = pstmt.executeUpdate();
 			
@@ -230,6 +232,31 @@ public class BoardDao {
 	public int deleteBoard(int bid) {
 		int result = FAIL;
 		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		String sql = "DELETE FROM BOARD WHERE BID = ?";
+		try {
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, bid);
+			result = pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		} finally {
+			try {
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (conn != null) {
+					conn.close();
+				}
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+			}
+		}
+		
 		return result;
 	}
 	
@@ -255,11 +282,60 @@ public class BoardDao {
 				String 		bcontent	= rs.getString("bcontent");
 				Timestamp 	bdate		= rs.getTimestamp("bdate");
 				int 		bhit		= rs.getInt("bhit");
+				int			bgroup		= rs.getInt("bgroup");
 				int 		bstep		= rs.getInt("bstep");
 				int			bindent		= rs.getInt("bindent");
 				String 		bip			= rs.getString("bip");
 				
-				dto = new BoardDto(bid, bname, btitle, bcontent, bdate, bhit, bstep, bindent, bip);
+				dto = new BoardDto(bid, bname, btitle, bcontent, bdate, bhit, bgroup, bstep, bindent, bip);
+			}
+			
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (conn != null) {
+					conn.close();
+				}
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+			}
+		}
+		return dto;
+	}
+	
+	// 수정, 답변 전 view
+	public BoardDto modifyView_replyView(int bid) {
+		BoardDto dto = null;
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "SELECT * FROM BOARD WHERE BID = ?";
+		try {
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, bid);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				String 		bname		= rs.getString("bname");
+				String 		btitle		= rs.getString("btitle");
+				String 		bcontent	= rs.getString("bcontent");
+				Timestamp 	bdate		= rs.getTimestamp("bdate");
+				int 		bhit		= rs.getInt("bhit");
+				int			bgroup		= rs.getInt("bgroup");
+				int 		bstep		= rs.getInt("bstep");
+				int			bindent		= rs.getInt("bindent");
+				String 		bip			= rs.getString("bip");
+				
+				dto = new BoardDto(bid, bname, btitle, bcontent, bdate, bhit, bgroup, bstep, bindent, bip);
 			}
 			
 		} catch (SQLException e) {
@@ -326,8 +402,8 @@ public class BoardDao {
 			pstmt.setString(2, btitle);
 			pstmt.setString(3, bcontent);
 			pstmt.setInt(4, bgroup);
-			pstmt.setInt(5, bstep);
-			pstmt.setInt(6, bindent);
+			pstmt.setInt(5, bstep+1);
+			pstmt.setInt(6, bindent+1);
 			pstmt.setString(7, bip);
 
 			result = pstmt.executeUpdate();

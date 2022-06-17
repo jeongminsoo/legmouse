@@ -10,6 +10,7 @@ public class BoardDto {
 	private String 		bcontent;
 	private Timestamp 	bdate;
 	private int 		bhit;
+	private int			bgroup;
 	private int 		bstep;
 	private int			bindent;
 	private String 		bip;
@@ -17,14 +18,15 @@ public class BoardDto {
 	public BoardDto() {
 	}
 
-	public BoardDto(int bid, String bname, String btitle, String bcontent, Timestamp bdate, int bhit, int bstep,
-			int bindent, String bip) {
+	public BoardDto(int bid, String bname, String btitle, String bcontent, Timestamp bdate, int bhit, int bgroup,
+			int bstep, int bindent, String bip) {
 		this.bid = bid;
 		this.bname = bname;
 		this.btitle = btitle;
 		this.bcontent = bcontent;
 		this.bdate = bdate;
 		this.bhit = bhit;
+		this.bgroup = bgroup;
 		this.bstep = bstep;
 		this.bindent = bindent;
 		this.bip = bip;
@@ -78,6 +80,14 @@ public class BoardDto {
 		this.bhit = bhit;
 	}
 
+	public int getBgroup() {
+		return bgroup;
+	}
+
+	public void setBgroup(int bgroup) {
+		this.bgroup = bgroup;
+	}
+
 	public int getBstep() {
 		return bstep;
 	}
@@ -103,5 +113,4 @@ public class BoardDto {
 	}
 
 	
-
 }
