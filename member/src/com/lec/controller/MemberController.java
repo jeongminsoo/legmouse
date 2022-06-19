@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.lec.service.MJoinService;
 import com.lec.service.MLoginService;
 import com.lec.service.Service;
 
@@ -17,6 +18,8 @@ import com.lec.service.Service;
 public class MemberController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	private boolean join_view = false;
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		actionDo(request, response);
 	}
@@ -39,12 +42,19 @@ public class MemberController extends HttpServlet {
 			service = new MLoginService();
 			service.execute(request, response);
 			viewPage = "member/main.jsp";
+		} else if (command.equals("/join_view.do")) {
+			viewPage = "member/join_view.jsp";
+			join_view = true;
+		} else if (command.equals("/join.do")) {
+			if (join_view) {
+				service =  new MJoinService();
+				service.execute(request, response);
+				viewPage = "member/login_view.jsp";
+				join_view = false;
+			}
 		}
 		RequestDispatcher rd = request.getRequestDispatcher(viewPage);
 		rd.forward(request, response);
-			
-			
-		
 	}
 
 }
