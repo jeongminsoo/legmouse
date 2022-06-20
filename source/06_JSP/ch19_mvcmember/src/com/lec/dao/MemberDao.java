@@ -20,8 +20,8 @@ public class MemberDao {
 	
 	public static final int SUCCESS = 1;
 	public static final int FAIL = 0;
-	public static final int ID_EXISTENT = 0;
-	public static final int ID_NONEXISTENT = 1;
+	public static final int ID_EXISTENT = 2;
+	public static final int ID_NONEXISTENT = 3;
 	
 	private static MemberDao instance = new MemberDao();
 	
@@ -52,8 +52,9 @@ public class MemberDao {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, mid);
 			rs = pstmt.executeQuery();
-			
-			if (!rs.next()) {
+			if (rs.next()) {
+				result = ID_EXISTENT;
+			} else {
 				result = ID_NONEXISTENT;
 			}
 			
@@ -172,18 +173,18 @@ public class MemberDao {
 			pstmt.setString(1, mid);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
-				while (rs.next()) {
-					String	mpw			= rs.getString("mpw");
-					String	mname		= rs.getString("mname");
-					String	memail		= rs.getString("memail");
-					String	mphoto		= rs.getString("mphoto");
-					Date	mbirth		= rs.getDate("mbirth");
-					String 	maddress	= rs.getString("maddress");
-					Date	mrdate		= rs.getDate("mrdate");
+				 
+				String	mpw			= rs.getString("mpw");
+				String	mname		= rs.getString("mname");
+				String	memail		= rs.getString("memail");
+				String	mphoto		= rs.getString("mphoto");
+				Date	mbirth		= rs.getDate("mbirth");
+				String 	maddress	= rs.getString("maddress");
+				Date	mrdate		= rs.getDate("mrdate");
 					
-					dto = new MemberDto(mid, mpw, mname, memail, mphoto, mbirth, maddress, mrdate);
-				}
+				dto = new MemberDto(mid, mpw, mname, memail, mphoto, mbirth, maddress, mrdate);
 			}
+			
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		} finally {
