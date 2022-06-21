@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style></style>
+	<script	 src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$('button').click(function(){
+				var mId = $('#mId').val();
+				// $.get(요청경로, 함수(콜백함수)(data, status)){
+				//	data : 요청경로의 수행결과
+				//  status : success/fail });
+				
+				$.get('idConfirm.jsp?mId='+mId, function(data, status){
+					if (status == 'success') {
+						$('#result').html(data);
+					}
+				});
+			});
+			$('#mId').keyup(function(){
+				var mId = $('#mId').val();
+				if (mId.length < 3) {
+					$('#result').html('3글자 이상 입력하세요');
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+	<p>
+		아이디 <input type="text" name="mId" id="mId"> <button>중복체크</button>
+	</p>
+	<span id="result"></span>
+</body>
+</html>

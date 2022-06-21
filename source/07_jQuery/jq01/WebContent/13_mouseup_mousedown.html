@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style></style>
+	<script	 src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$('img').mousedown(function(){
+				$(this).attr('src', 'img/but2.gif');
+			});
+			$('img').mouseup(function(){
+				$(this).attr('src', 'img/but1.gif');
+			});
+		});
+	</script>
+</head>
+<body>
+	<img src="img/but1.gif">
+</body>
+</html>

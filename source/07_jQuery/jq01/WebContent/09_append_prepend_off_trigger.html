@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style>
+		.red {
+			color : red;
+		}
+		.blue {
+			color : blue;
+		}
+	</style>
+	<script	 src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			var h1Cnt = 0;
+			var h2Cnt = 0;
+			$('#h2').click(function(){
+				$(this).prepend('<b class="red">♥</b>');
+				$(this).append('<b class="blue">♥</b>');
+			});
+			$('#h1').click(function(){
+				h1Cnt++;
+				if (h1Cnt < 6) {
+					$(this).prepend('<span class="red">♥</span>');
+					$(this).append('<span class="blue">♥</span>');
+				} else {
+					$('#h1').off();
+				}
+			});
+			setInterval(function(){
+				$('h1').trigger('click');
+			}, 1000);
+		});
+	</script>
+</head>
+<body>
+	<h1 id="h1">start1</h1>
+	<h1 id="h2">start2</h1>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style>
+		* {
+			padding : 0;
+		}
+		table {
+			width : 303px;
+			margin : 0 auto;
+		}
+		p {
+			text-align : center;
+		}
+		table td {
+			width : 100px;
+			height : 100px;
+			background-color : #AAFFAA;
+		}
+		.tdRed {
+			background-color : red;
+		}
+		.answer {
+			background-image : url('img/dduk.jpg');
+			background-size : 100%;
+			background-repeat : no-repeat;
+		}
+	</style>
+	<script	 src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			var no = parseInt(Math.random()*9);
+			$('td').each(function(idx, item){
+				if (idx != no) {
+					$(this).click(function(){
+						$('td').removeClass('tdRed');
+						$(this).addClass('tdRed');
+						$('p').html('틀렸습니다.'+ no + '입니다');
+					});
+				} else {
+					$(this).click(function(){
+						$('td').removeClass('tdRed');
+						$(this).addClass('answer');
+						$('p').html('정답입니다');
+						$('td').off();
+					});
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+	<table>
+		<tr>
+			<td></td><td></td><td></td>
+		</tr>
+		<tr>
+			<td></td><td></td><td></td>
+		</tr>
+		<tr>
+			<td></td><td></td><td></td>
+		</tr>
+	</table>
+	<p>선택한 곳이 맞는지 답 뿌리는 곳</p>
+</body>
+</html>

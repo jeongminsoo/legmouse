@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style></style>
+	<script	 src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$('img').each(function(idx, item){
+				$(this).hover(function(){
+					$(this).attr('src','img/' + idx + 'over.jpg');
+				}, function(){
+					$(this).attr('src', 'img/'+ idx + 'out.jpg');
+				});
+			});
+			
+		});
+	</script>
+</head>
+<body>
+	<img src="img/0out.jpg">
+	<img src="img/1out.jpg">
+	<img src="img/2out.jpg">
+	<img src="img/3out.jpg">
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style>
+		table {
+			width : 300px;
+			margin : 0 auto;
+			text-align : center;
+		}
+	</style>
+	<script	 src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$('input[name="pwChk"]').keyup(function(){
+				var pw = $('input[name="pw"]').val();
+				var pwchk = $('input[name="pwChk"]').val();
+				if (pw == pwchk) {
+					$('.result').html('<b>두 비밀번호 일치</b>').css('color', 'blue');
+				} else {
+					$('.result').html('<b>두 비밀번호 불일치</b>').css('color', 'red');
+				}
+			});
+			$('form').submit(function(){
+				var result = $('.result').text().trim();
+				if (result != '두 비밀번호 일치') {
+					alert('비밀번호를 확인하세요');
+					$('input[name="pw"]').val('');
+					$('input[name="pwChk"]').val('');
+					$('.result').html('');
+					return false;
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+	<form action="">
+		<table>
+			<tr>
+				<th>ID</th>
+				<td><input type="text" name="id"></td>
+			</tr>
+			<tr>
+				<th>PW</th>
+				<td><input type="password" name="pw"></td>
+			</tr>
+			<tr>
+				<th>PWChk</th>
+				<td><input type="password" name="pwChk"></td>
+			</tr>
+			<tr>
+				<td class="result" colspan="2">
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2"> &nbsp; </td>
+			</tr>
+			<tr>
+				<td colspan="2"><input type="submit" value="가입하기"></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
