@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+* {
+	margin : 0;
+	padding : 0;
+}
+
+li {
+	list-style : none;
+}
+
+footer {
+	width : 100%;
+	minwidth : 1000px;
+	height : 100px;
+	line-height : 50px;
+	text-align : center;
+	background-color : black;
+	text-align : center;
+	color : white;
+	font-weight : bold;
+}
+
+footer #info_wrap ul li {
+	height : 20px;
+}
