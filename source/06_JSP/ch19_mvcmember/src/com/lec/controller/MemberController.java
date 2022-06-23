@@ -9,15 +9,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-<<<<<<< HEAD
 import com.lec.service.MJoinService;
 import com.lec.service.MListService;
 import com.lec.service.MLoginService;
 import com.lec.service.MLogoutService;
 import com.lec.service.MModifyService;
-=======
-import com.lec.service.MLoginService;
->>>>>>> 6b1a7f090987a8a03dae707422fbdb6d5396b8bf
+
+
 import com.lec.service.Service;
 
 
@@ -48,7 +46,7 @@ public class MemberController extends HttpServlet {
 			service = new MLoginService();
 			service.execute(request, response);
 			viewPage = "member/main.jsp";
-<<<<<<< HEAD
+
 		} else if (command.equals("/join_view.do")) {
 			viewPage = "member/join_view.jsp";
 			join_view = true;
@@ -73,8 +71,7 @@ public class MemberController extends HttpServlet {
 			service = new MListService();
 			service.execute(request, response);
 			viewPage = "member/list_view.jsp";
-=======
->>>>>>> 6b1a7f090987a8a03dae707422fbdb6d5396b8bf
+
 		}
 		RequestDispatcher rd = request.getRequestDispatcher(viewPage);
 		rd.forward(request, response);

@@ -12,18 +12,7 @@
 	<script	 src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script>
 		$(document).ready(function(){
-			$('input[name="mid"]').keyup(function(){
-				var mid = $('input[name="mid"]').val();
-				$.ajax({
-					url : '${conPath}/idChk.do',
-					data : 'mid=' + mid,
-					type : 'post',
-					dataType : 'html',
-					success : function(data){
-						$('#idChkResult').html(data);
-					}
-				});
-			});
+			$('#emailChkResult').html('사용 가능한 이메일입니다');
 			$('input[name="mpw"], input[name="mpwchk"]').keyup(function(){
 				var mpw = $('input[name="mpw"]').val();
 				var mpwchk = $('input[name="mpwchk"]').val();
@@ -33,27 +22,32 @@
 					$('#pwChkResult').html("두 비밀번호가 일치하지 않습니다");
 				}
 			});
-			
 			$('input[name="memail"]').keyup(function(){
-				var memail = $('input[name="memail"]').val();
-				$.ajax({
-					url : '${conPath}/emailChk.do',
-					data : 'memail=' + memail,
-					type : 'post',
-					dataType : 'html',
-					success : function(data){
-						$('#emailChkResult').html(data);
-					}
-				});
+				var newmemail = $('input[name="memail"]').val();
+				if (memail != newmemail) {
+					$.ajax({
+						url : '${conPath}/emailChk.do',
+						data : 'memail=' + newmemail,
+						type : 'post',
+						dataType : 'html',
+						success : function(data){
+							$('#emailChkResult').html(data);
+						}
+					});
+				} else {
+					$('#emailChkResult').html('사용 가능한 이메일입니다');
+				}
 			});
 			$('form').submit(function(){
-				var idchk = $('#idChkResult').text().trim();
-				var pwchk = $('#pwChkResult').text().trim();
+				var mpw = '${member.mpw}';
+				var oldpw = $('input[name="oldpw"]').val();
+				var pwchk = $('#pwChkResult').text().trim() == '' ? '비밀번호 일치' : $('#pwChkResult').text().trim();
 				var emailchk = $('#emailChkResult').text().trim();
-				if (idchk != '사용 가능한 아이디입니다') {
-					alert('사용 가능한 아이디로 가입하세요');
+
+				if (oldpw != mpw ) {
+					alert('현재 비밀번호가 다릅니다')
 					return false;
-				} else if (pwchk != '비밀번호 일치') {
+				} else if ((pwchk != '비밀번호 일치') || (pwchk == '')) {
 					alert('비밀번호를 확인하세요');
 					return false;
 				} else if (emailchk != '사용 가능한 이메일입니다') {
@@ -87,65 +81,71 @@
 <body>
 	<jsp:include page="../main/header.jsp"/>
 	<div id="join_wrap">
-		<form action="${conPath }/join.do" method="post" enctype="multipart/form-data">
+		<form action="${conPath }/modify.do" method="post" enctype="multipart/form-data">
 			<table>
-				<caption>회원가입</caption>
+				<caption>정보수정</caption>
 				<tr>
 					<th>아이디</th>
 					<td>
-						<input type="text" name="mid" required="required">
-						<div id="idChkResult"></div>
+						<input type="text" name="mid" value="${member.mid }" readonly="readonly">
+					</td>
+					<td rowspan="4"><img src="${conPath }/mPhotoUp/${member.mphoto}" width="100"></td>
+				</tr>
+				<tr>
+					<th>현재비밀번호</th>
+					<td>
+						<input type="password" name="oldpw" required="required">
 					</td>
 				</tr>
 				<tr>
-					<th>비밀번호</th>
+					<th>새비밀번호</th>
 					<td>
-						<input type="password" name="mpw" required="required">
+						<input type="password" name="mpw">
 					</td>
 				</tr>
 				<tr>
-					<th>비밀번호확인</th>
+					<th>새비밀번호확인</th>
 					<td>
-						<input type="password" name="mpwchk" required="required">
+						<input type="password" name="mpwchk">
 						<div id="pwChkResult"> </div>
 					</td>
 				</tr>
 				<tr>
 					<th>이름</th>
-					<td>
-						<input type="text" name="mname" required="required">
+					<td colspan="2">
+						<input type="text" name="mname" required="required" value="${member.mname }">
 					</td>
 				</tr>
 				<tr>
 					<th>이메일</th>
-					<td>
-						<input type="email" name="memail" required="required">
+					<td colspan="2">
+						<input type="email" name="memail" required="required" value="${member.memail }">
 						<div id="emailChkResult"> </div>
 					</td>
 				</tr>
 				<tr>
 					<th>사진</th>
-					<td>
+					<td colspan="2">
 						<input type="file" name="mphoto">
 					</td>
 				</tr>
 				<tr>
 					<th>생년월일</th>
-					<td>
-						<input type="text" name="tempbirth" id="datepicker">
+					<td colspan="2">
+						<input type="text" name="tempbirth" id="datepicker" value='${member.mbirth eq null ? "" : member.mbirth}'>
 					</td>
 				</tr>
 				<tr>
 					<th>주소</th>
-					<td>
-						<input type="text" name="maddress">
+					<td colspan="2">
+						<input type="text" name="maddress" value='${member.maddress eq null ? "" : member.maddress }'>
 					</td>
 				</tr>
 
 			</table>
 			<p>
-				<input type="submit" value="회원가입" class="btn">
-				<input type="button" value="로그인" class="btn" onclick="location.href='${conPath}/login_m_view.do'">
+				<input type="submit" value="정보수정" class="btn">
+				<input type="button" value="메인으로" class="btn" onclick="location.href='${conPath}/main/main.jsp'">
 			</p>
 		</form>
 	</div>

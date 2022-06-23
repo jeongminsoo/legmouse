@@ -11,43 +11,37 @@
 	<link href="${conPath}/css/style.css" rel="stylesheet">
 </head>
 <body>
-	<c:if test="${joinResult eq 0 }">
+	<c:if test="${admin != null }">
 		<script>
-			alert('회원가입 실패! 다시 시도하세요');
+			alert('이미 로그인되어 있습니다');
 			history.back();
 		</script>
 	</c:if>
-	<c:if test="${joinResult eq 1 }">
-		<script>
-			alert('회원가입 성공! 로그인 하세요');
-		</script>
-	</c:if>
-	<jsp:include page="header.jsp"/>
+	<jsp:include page="../main/header.jsp"/>
 	<div id="login_wrap">
-		<form>
+		<form action="login_a.do" method="post">
 			<table>
-				<caption>사용자 로그인</caption>
+				<caption>관리자 로그인</caption>
 				<tr>
 					<th>ID</th>
 					<td>
-						<input type="text" name="mid" required="required" value="${mid }">
+						<input type="text" name="aid" required="required">
 					</td>
 				</tr>
 				<tr>
 					<th>PW</th>
 					<td>
-						<input type="password" name="mpw" required="required">
+						<input type="password" name="apw" required="required">
 					</td>
 				</tr>
 				<tr>
 					<td colspan="2">
 						<input type="submit" value="로그인" class="btn">
-						<input type="button" value="회원가입" class="btn" onclick="location.href='${conPath}/join_view.do'">
 					</td>
 				</tr>
 			</table>
 		</form>
 	</div>
-	<jsp:include page="footer.jsp"/>
+	<jsp:include page="../main/footer.jsp"/>
 </body>
 </html>

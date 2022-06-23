@@ -1,0 +1,10 @@
+@charset "UTF-8";
+
+#main_wrap {
+	width : 90%;
+	minwidth : 1000px;
+	height : 600px;
+	text-align : center;
+	margin : 0 auto;
+	line-height : 600px;
+}

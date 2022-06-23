@@ -75,7 +75,6 @@ public class MemberDao {
 				System.out.println(e.getMessage());
 			}
 		}
-		
 		return result;
 	}
 	// 아이디 체크
@@ -202,5 +201,122 @@ public class MemberDao {
 			}
 		}
 		return dto;
+	}
+	// 정보수정
+	public int modifyMember(MemberDto dto) {
+		int result = FAIL;
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		String sql = "UPDATE MVC_MEMBER SET MPW = ?, MNAME = ?, MEMAIL = ?, MPHOTO = ?, MBIRTH = ?, MADDRESS = ?" + 
+				" WHERE MID = ?";
+		
+		try {
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, dto.getMpw());
+			pstmt.setString(2, dto.getMname());
+			pstmt.setString(3, dto.getMemail());
+			pstmt.setString(4, dto.getMphoto());
+			pstmt.setDate(5, dto.getMbirth());
+			pstmt.setString(6, dto.getMaddress());
+			pstmt.setString(7, dto.getMid());
+			
+			result = pstmt.executeUpdate();
+			
+			
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		} finally {
+			try {
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (conn != null) {
+					conn.close();
+				}
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+			}
+		}
+		return result;
+	}
+	
+	// 로그인 체크
+	public int loginChkMember(String mid, String mpw) {
+		int result = FAIL;
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "SELECT * FROM MVC_MEMBER WHERE MID = ? AND MPW = ?";
+		
+		try {
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, mid);
+			pstmt.setString(2, mpw);
+			rs = pstmt.executeQuery();
+			
+			if (rs.next()) {
+				result = SUCCESS;
+			}
+			
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (conn != null) {
+					conn.close();
+				}
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+			}
+		}
+		return result;
+	}
+	// 회원 수
+	public int countMember() {
+		int cnt = 0;
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "SELECT COUNT(*) CNT FROM MVC_MEMBER";
+		
+		try {
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			rs.next();
+			cnt = rs.getInt("cnt");
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		} finally {
+			try {
+				if(rs != null) {
+					rs.close();
+				}
+				if(pstmt != null) {
+					pstmt.close();
+				}
+				if(conn != null) {
+					conn.close();
+				}
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+			}
+		}
+		return cnt;
 	}
 }

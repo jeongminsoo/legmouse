@@ -1,0 +1,29 @@
+@charset "UTF-8";
+* {
+	margin : 0;
+	padding : 0;
+}
+
+#join_wrap {
+	width : 100%;
+	minwidth : 1000px;
+	height : 600px;
+	text-align : center;
+}
+
+#join_wrap table {
+	background-color : black;
+	width : 90%;
+	margin : 20px auto;
+}
+
+#join_wrap table tr {
+	background-color : white;
+	height : ;
+}
+#join_wrap table td {
+	width : 120px;
+}
+#join_wrap table th {
+	width : 240px;
+}

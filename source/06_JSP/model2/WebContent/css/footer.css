@@ -5,6 +5,12 @@
 	padding : 0;
 }
 
+footer #info_wrap ul li span a {
+	color : white;
+	font-weight : bold;
+	text-decoration : underline;
+}
+
 li {
 	list-style : none;
 }

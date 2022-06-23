@@ -8,17 +8,13 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
-	<link href="${conPath}/css/footer.css" rel="stylesheet">
 </head>
 <body>
-	<footer>
-		<div id="info_wrap">
-			<ul>
-				<li>(주)메가IT아카데미</li>
-				<li>서울특별시 강남구 강남대로77길 77 칠칠빌딩</li>
-				<li>Copyrightⓒ 2022 mg. All rights reserved.</li>
-			</ul>
-		</div>
-	</footer>
+	<%
+		session.removeAttribute("member");
+	%>
+	<script>
+		location.href='${conPath}/main/main.jsp';
+	</script>
 </body>
 </html>
