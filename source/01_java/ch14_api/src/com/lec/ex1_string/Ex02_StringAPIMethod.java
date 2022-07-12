@@ -9,7 +9,7 @@ public class Ex02_StringAPIMethod {
 	String str3 = "       ja      va     ";
 	System.out.println("1." + str1.concat(str2));
 	System.out.println("2." + str1.substring(3));
-	System.out.println("3." + str1.substring(3, 5));
+	System.out.println("3." + str1.substring(3, 4));
 	System.out.println("4." + str1.length());
 	System.out.println("5." + str1.toUpperCase());
 	System.out.println("6." + str1.toLowerCase());
