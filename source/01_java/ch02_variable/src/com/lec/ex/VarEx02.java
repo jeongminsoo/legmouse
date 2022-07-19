@@ -13,6 +13,7 @@ public class VarEx02 {
 		char c1 = 'A';
 		char c2 = 'B';
 		
+		
 		System.out.print("c1 = " + c1 + "\t c2 = " + c2);
 		System.out.printf("c1 = %c \t c2 = %c\n", c1, c2);
 		// %c - 문자 / %d - 정수 / %f - 실수 / %s - 문자열
