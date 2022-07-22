@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.lec.ch17.dao.BoardDao">
+	<resultMap type="Board" id="BoardResult">
+		<result property="bno" column="bno"/>
+		<result property="bname" column="bname"/>
+		<result property="btitle" column="btitle"/>
+		<result property="bcontent" column="bcontent"/>
+		<result property="brdate" column="brdate"/>
+		<result property="bhit" column="bhit"/>
+		<result property="bgroup" column="bgroup"/>
+		<result property="bstep" column="bstep"/>
+		<result property="bindent" column="bindent"/>
+		<result property="bip" column="bip"/>
+	</resultMap>
+	<select id="boardList" parameterType="Board" resultMap="BoardResult">
+		SELECT *
+    		FROM (SELECT ROWNUM RN, A.*
+            		FROM (SELECT * FROM BOARD ORDER BY BGROUP DESC, BSTEP) A)
+    		WHERE RN BETWEEN #{startRow} AND #{endRow}
+	</select>
+	<select id="boardDetail" parameterType="int" resultType="Board">
+		SELECT * FROM BOARD WHERE BNO = #{bno}
+	</select>
+	<select id="countBoard" resultType="int">
+		SELECT COUNT(*) FROM BOARD
+	</select>
+	<select id="getBoard" parameterType="int" resultType="Board">
+		SELECT * FROM BOARD WHERE BNO = #{bno}
+	</select>
+	<insert id="boardWrite" parameterType="Board" >
+		INSERT INTO BOARD (BNO, BNAME, BTITLE, BCONTENT, BGROUP, BSTEP, BINDENT, BIP)
+    		VALUES (BOARD_SEQ.NEXTVAL, #{bname}, #{btitle}, #{bcontent}, BOARD_SEQ.CURRVAL, 0, 0, #{bip})
+	</insert>
+	<insert id="boardReply" parameterType="Board">
+		INSERT INTO BOARD (BNO, BNAME, BTITLE, BCONTENT, BGROUP, BSTEP, BINDENT, BIP)
+    		VALUES (BOARD_SEQ.NEXTVAL, #{bname}, #{btitle}, #{bcontent}, #{bno}, (#{bstep}+1), (#{bindent}+1), #{bip})
+	</insert>
+	<update id="boardUpdate" parameterType="Board">
+		UPDATE BOARD SET BNAME = #{bname}, BTITLE = #{btitle}, BCONTENT = #{bcontent}, BIP = #{bip}
+    		WHERE BNO = #{bno}
+	</update>
+	<update id="hitup" parameterType="int">
+		UPDATE BOARD SET BHIT = BHIT + 1 WHERE BNO = #{bno}
+	</update>
+	<update id="beforestepA" parameterType="Board">
+		UPDATE BOARD SET BSTEP = BSTEP + 1 WHERE BGROUP = #{bgroup} AND BSTEP > #{bstep}
+	</update>
+	<delete id="boardDelete" parameterType="int">
+		DELETE FROM BOARD WHERE BNO = #{bno}
+	</delete>
+</mapper>

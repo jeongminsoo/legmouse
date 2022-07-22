@@ -12,17 +12,36 @@
 		<result property="sal" column="sal"/>
 		<result property="comm" column="comm"/>
 		<result property="deptno" column="deptno"/>
+		<result property="dname" column="dname"/>
+		<result property="loc" column="loc"/>
 	</resultMap>
 	<select id="empList" parameterType="Emp" resultMap="EmpResult">
-		SELECT * FROM EMP WHERE 1 = 1
-		<if test="ename != null and ename != ''">
-			AND ENAME LIKE '%'||#{ename}||'%'
-		</if>
-		<if test="job != null and job != ''">
-			AND JOB LIKE '%'||#{job}||'%'
-		</if>
-		<if test="deptno != 0">
-			AND DEPTNO = #{deptno}
-		</if>
+		SELECT * FROM (SELECT ROWNUM RN, A.* FROM (SELECT * FROM EMP ORDER BY EMPNO) A)
+    		WHERE RN BETWEEN #{startRow} AND #{endRow}
 	</select>
+	<select id="empDeptList" parameterType="Emp" resultMap="EmpResult">
+		SELECT * 
+    		FROM (SELECT ROWNUM RN, A.* FROM
+            		(SELECT E.*, DNAME, LOC FROM EMP E, DEPT D
+                		WHERE E.DEPTNO = D.DEPTNO ORDER BY EMPNO) A)
+    		WHERE RN BETWEEN #{startRow} AND #{endRow}
+	</select>
+	<select id="totCnt" resultType="int">
+		SELECT COUNT(*) FROM EMP
+	</select>
+	<select id="detail" parameterType="int" resultType="Emp">
+		SELECT * FROM EMP WHERE EMPNO = #{empno}
+	</select>
+	<select id="managerList" resultMap="EmpResult">
+		SELECT * FROM EMP WHERE EMPNO IN (SELECT MGR FROM EMP)
+	</select>
+	<insert id="insert" parameterType="Emp">
+		INSERT INTO EMP VALUES (#{empno}, #{ename}, #{job}, #{mgr}, #{hiredate}, #{sal}, #{comm}, #{deptno})
+	</insert>
+	<update id="update" parameterType="Emp">
+		UPDATE EMP SET ENAME = #{ename}, JOB = #{job}, MGR = #{mgr}, HIREDATE = #{hiredate}, SAL = #{sal}, COMM = #{comm}, DEPTNO = #{deptno} WHERE EMPNO = #{empno}
+	</update>
+	<delete id="delete" parameterType="int">
+		DELETE FROM EMP WHERE EMPNO = #{empno}
+	</delete>
 </mapper>

@@ -4,8 +4,8 @@
     "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
-		<typeAlias type="com.lec.ch15.dto.Dept" alias="Dept"/>
-		<typeAlias type="com.lec.ch15.dto.Emp" alias="Emp"/>
+		<typeAlias type="com.lec.ch15.model.Dept" alias="Dept"/>
+		<typeAlias type="com.lec.ch15.model.Emp" alias="Emp"/>
 	</typeAliases>
 	<mappers>
 		<mapper resource="META-INF/sqlmap/mappers/Dept.xml"/>
