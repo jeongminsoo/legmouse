@@ -9,7 +9,7 @@ public interface MemberDao {
 
 	public int idCheck(String mid);
 	
-	public Member getmember(String mid);
+	public Member getMember(String mid);
 	
 	public Member loginCheck(String mid, String mpw);
 	

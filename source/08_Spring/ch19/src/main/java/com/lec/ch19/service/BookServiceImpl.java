@@ -68,6 +68,7 @@ public class BookServiceImpl implements BookService {
 					System.out.println(e.getMessage());
 				}
 			}
+			System.out.println(filenames[i]);
 			i++;
 		}
 		book.setBimg1(filenames[0]);

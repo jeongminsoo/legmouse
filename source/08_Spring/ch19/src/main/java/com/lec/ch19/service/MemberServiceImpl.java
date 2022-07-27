@@ -29,13 +29,13 @@ public class MemberServiceImpl implements MemberService {
 	
 	@Override
 	public Member getmember(String mid) {
-		return memberDao.getmember(mid);
+		return memberDao.getMember(mid);
 	}
 
 	@Override
 	public String loginCheck(String mid, String mpw, HttpSession session) {
 		String result = "로그인 성공";
-		Member member = memberDao.getmember(mid);
+		Member member = memberDao.getMember(mid);
 		if (member == null) {
 			result = "유효하지 않은 아이디입니다";
 		} else if (!mpw.equals(member.getMpw())) {
@@ -65,6 +65,7 @@ public class MemberServiceImpl implements MemberService {
 					"</div>"; // 메일내용
 			@Override
 			public void prepare(MimeMessage mimeMessage) throws Exception {
+				System.out.println(member.getMemail());
 				mimeMessage.setRecipient(Message.RecipientType.TO, new InternetAddress(member.getMemail())); // 받는메일
 				mimeMessage.setFrom(new InternetAddress("rnsqkflalsrjf@gmail.com"));
 				mimeMessage.setSubject("[가입인사]" + member.getMname() + "님의 회원가입을 축하드립니다");

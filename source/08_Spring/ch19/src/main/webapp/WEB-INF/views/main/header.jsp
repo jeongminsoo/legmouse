@@ -77,7 +77,7 @@ header .lnb a {
 		<ul>
 			<li><a href="${conPath}/main.do">홈</a></li>
 			<li><a href="${conPath }/book.do?method=list&pageNum=1">도서보기</a></li>
-			<li><a href="${conPath }/book.do?method=registerForm">도서등록</a></li>
+			<li><a href="${conPath }/book.do?method=addForm">도서등록</a></li>
 		</ul>
 	</div>
 </header>
