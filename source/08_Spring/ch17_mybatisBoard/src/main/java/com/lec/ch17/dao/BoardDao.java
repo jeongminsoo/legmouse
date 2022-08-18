@@ -21,7 +21,7 @@ public interface BoardDao {
 	
 	public int boardUpdate(Board board);
 	
-	public int hitup(int bno);
+	public void hitup(int bno);
 	
 	public int beforestepA(Board board);
 	

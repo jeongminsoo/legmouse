@@ -20,7 +20,7 @@ public interface BoardService {
 	
 	public int boardUpdate(Board board, HttpServletRequest request);
 	
-	public int hitup(int bno);
+	public void hitup(int bno);
 	
 	public int beforestepA(Board board);
 	

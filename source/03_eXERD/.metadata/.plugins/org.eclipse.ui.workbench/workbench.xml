@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workbench progressCount="13" version="2.0">
 <workbenchAdvisor/>
-<window height="1047" width="974" x="708" y="9">
+<window height="960" width="1646" x="99" y="39">
 <fastViewData fastViewLocation="1024"/>
 <perspectiveBar>
 <itemSize x="160"/>
@@ -30,8 +30,8 @@
 </folder>
 </info>
 </editorArea>
-<editor activePart="true" focus="true" id="com.tomato.exerd.editor.DiagramEditor" name="2번.exerd" partName="2번.exerd" path="D:/webPro_jeong/source/03_eXERD/newProject/2번.exerd" title="2번.exerd" tooltip="newProject/2번.exerd" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/newProject/2번.exerd"/>
+<editor activePart="true" focus="true" id="com.tomato.exerd.editor.DiagramEditor" name="mylogdb .exerd" partName="mylogdb .exerd" title="mylogdb .exerd" tooltip="C:\Users\user\Desktop\mylogdb .exerd" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/C:/Users/user/Desktop/mylogdb%20.exerd"/>
 </editor>
 </editors>
 <views>
@@ -87,19 +87,23 @@
 <new_wizard_action id="com.tomato.exerd.ui.wizards.newEXerdWizardFromDatabase"/>
 <new_wizard_action id="com.tomato.exerd.term.ui.wizard.NewTermDictionaryWizard"/>
 <new_wizard_action id="com.tomato.exerd.xscript.ui.wizard.NewXScriptWizard"/>
-<view id="com.tomato.exerd.ui.views.domain"/>
-<view id="com.tomato.exerd.validate.ui.ValidateView"/>
-<view id="org.eclipse.ui.console.ConsoleView"/>
 <fastViewBars>
-<fastViewBar fastViewLocation="131072" id="rightFolder" orientation="512" selectedTabId="com.tomato.exerd.modelview3.ModelView3" style="0">
+<fastViewBar fastViewLocation="128" id="rightFolder" orientation="512" selectedTabId="com.tomato.exerd.modelview3.ModelView3" style="0">
 <fastViews>
 <view id="com.tomato.exerd.modelview3.ModelView3" ratio="0.3"/>
 <view id="org.eclipse.ui.views.ContentOutline" ratio="0.3"/>
 </fastViews>
 </fastViewBar>
-<fastViewBar fastViewLocation="131072" id="org.eclipse.ui.internal.ViewStack@6642a5" orientation="512" selectedTabId="com.tomato.exerd.ui.views.thumbnail" style="0">
+<fastViewBar fastViewLocation="128" id="org.eclipse.ui.internal.ViewStack@6642a5" orientation="512" selectedTabId="com.tomato.exerd.ui.views.thumbnail" style="0">
 <fastViews>
 <view id="com.tomato.exerd.ui.views.thumbnail" ratio="0.3"/>
+</fastViews>
+</fastViewBar>
+<fastViewBar fastViewLocation="1024" id="bottomFolder" orientation="256" selectedTabId="com.tomato.exerd.ui.views.domain" style="0">
+<fastViews>
+<view id="com.tomato.exerd.ui.views.domain" ratio="0.3"/>
+<view id="com.tomato.exerd.validate.ui.ValidateView" ratio="0.3"/>
+<view id="org.eclipse.ui.console.ConsoleView" ratio="0.3"/>
 </fastViews>
 </fastViewBar>
 <fastViewBar fastViewLocation="16384" id="leftFolder" orientation="512" selectedTabId="org.eclipse.ui.views.ResourceNavigator" style="0">
@@ -143,17 +147,13 @@
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
-<info folder="true" part="bottomFolder" ratio="0.6996904" ratioLeft="452" ratioRight="194" relationship="4" relative="org.eclipse.ui.editorss">
-<folder activePageID="com.tomato.exerd.ui.views.domain" appearance="2" expanded="2">
-<page content="com.tomato.exerd.ui.views.domain" label="도메인"/>
-<page content="com.tomato.exerd.validate.ui.ValidateView" label="검토"/>
-<page content="org.eclipse.ui.console.ConsoleView" label="콘솔"/>
+<info folder="true" part="bottomFolder" ratio="0.9441461" ratioLeft="879" ratioRight="52" relationship="4" relative="org.eclipse.ui.editorss">
+<folder appearance="2" expanded="2">
+<page content="com.tomato.exerd.ui.views.domain" label="LabelNotFound"/>
+<page content="com.tomato.exerd.validate.ui.ValidateView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.console.ConsoleView" label="LabelNotFound"/>
 <page content="com.tomato.exerd.xscript.ScriptView" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
-<part id="1"/>
-<part id="2"/>
-</presentation>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
 <info folder="true" part="org.eclipse.ui.internal.ViewStack@1192705" ratio="0.2987616" ratioLeft="193" ratioRight="453" relationship="4" relative="leftFolder">
@@ -178,6 +178,10 @@
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/newProject/shoppingmall.exerd"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/newProject/member.exerd"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/newProject/2번.exerd"/>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" uri="file:/C:/Users/user/Documents/카카오톡%20받은%20파일/mylogdb.exerd"/>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" uri="file:/C:/Users/user/Documents/카카오톡%20받은%20파일/mylogdb%20(2).exerd"/>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" uri="file:/C:/Users/user/Documents/카카오톡%20받은%20파일/mylogdb%20(5).exerd"/>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" uri="file:/C:/Users/user/Desktop/mylogdb%20.exerd"/>
 </editors>
 <item historyLabel="dept_emp.exerd" index="0"/>
 <item historyLabel="book.exerd" index="1"/>
@@ -204,7 +208,11 @@
 <item historyLabel="shoppingmall.exerd" index="6"/>
 <item historyLabel="member.exerd" index="7"/>
 <item historyLabel="shoppingmall.exerd" index="6"/>
-<item active="true" historyLabel="2번.exerd" index="8"/>
+<item historyLabel="2번.exerd" index="8"/>
+<item historyLabel="mylogdb.exerd" index="9"/>
+<item historyLabel="mylogdb (2).exerd" index="10"/>
+<item historyLabel="mylogdb (5).exerd" index="11"/>
+<item active="true" historyLabel="mylogdb .exerd" index="12"/>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
 </page>
@@ -215,21 +223,32 @@
 <trimItem IMemento.internal.id="leftFolder"/>
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.ViewStack@1192705"/>
 </trimArea>
-<trimArea IMemento.internal.id="131072">
-<trimItem IMemento.internal.id="org.eclipse.ui.internal.ViewStack@6642a5"/>
-<trimItem IMemento.internal.id="rightFolder"/>
-</trimArea>
 <trimArea IMemento.internal.id="128">
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.WorkbenchWindow.topBar"/>
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.ViewStack@6642a5"/>
+<trimItem IMemento.internal.id="rightFolder"/>
 </trimArea>
 <trimArea IMemento.internal.id="1024">
 <trimItem IMemento.internal.id="org.eclise.ui.internal.FastViewBar"/>
 <trimItem IMemento.internal.id="org.eclipse.jface.action.StatusLineManager"/>
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.progress.ProgressRegion"/>
+<trimItem IMemento.internal.id="bottomFolder"/>
 </trimArea>
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" name="mylogdb .exerd" tooltip="C:\Users\user\Desktop\mylogdb .exerd">
+<persistable uri="file:/C:/Users/user/Desktop/mylogdb%20.exerd"/>
+</file>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" name="mylogdb (5).exerd" tooltip="C:\Users\user\Documents\카카오톡 받은 파일\mylogdb (5).exerd">
+<persistable uri="file:/C:/Users/user/Documents/카카오톡%20받은%20파일/mylogdb%20(5).exerd"/>
+</file>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" name="mylogdb (2).exerd" tooltip="C:\Users\user\Documents\카카오톡 받은 파일\mylogdb (2).exerd">
+<persistable uri="file:/C:/Users/user/Documents/카카오톡%20받은%20파일/mylogdb%20(2).exerd"/>
+</file>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" name="mylogdb.exerd" tooltip="C:\Users\user\Documents\카카오톡 받은 파일\mylogdb.exerd">
+<persistable uri="file:/C:/Users/user/Documents/카카오톡%20받은%20파일/mylogdb.exerd"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" name="2번.exerd" tooltip="newProject/2번.exerd">
 <persistable path="/newProject/2번.exerd"/>
 </file>

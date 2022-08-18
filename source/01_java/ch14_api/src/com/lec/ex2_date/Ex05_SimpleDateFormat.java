@@ -12,8 +12,8 @@ public class Ex05_SimpleDateFormat {
 		Date now1 = new Date();
 		Calendar now2 = Calendar.getInstance();
 		GregorianCalendar now3 = new GregorianCalendar();
-		SimpleDateFormat sdf = new SimpleDateFormat("yyy년 MM월 dd일 E요일 a hh시 mm분 ss초");
-		
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		System.out.println(now1);
 		System.out.println(sdf.format(now1));
 		System.out.println(sdf.format(now2.getTime()));
 		System.out.println(sdf.format(now3.getTime()));

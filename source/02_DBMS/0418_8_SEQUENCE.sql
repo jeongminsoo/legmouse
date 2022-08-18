@@ -7,7 +7,7 @@ CREATE SEQUENCE FRIEND_SEQ
     MINVALUE 1
     NOCACHE
     NOCYCLE;
-
+select * from rboard;
 SELECT FRIEND_SEQ.NEXTVAL FROM DUAL;
 DROP SEQUENCE FRIEND_SEQ;
 CREATE SEQUENCE FRIEND_SEQ
@@ -42,8 +42,8 @@ CREATE SEQUENCE TEST_SEQ
 SELECT TEST_SEQ.CURRVAL FROM DUAL; -- 시퀀스를 실행하지 않앗 값이 없어서 에러
 SELECT TEST_SEQ.NEXTVAL FROM DUAL;
     
+select * from member;
     
-    
-    
-    
+update member set mpw = '111' where mid='aaa';
+commit;
     

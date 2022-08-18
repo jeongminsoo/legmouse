@@ -57,8 +57,8 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public int hitup(int bno) {
-		return boardDao.hitup(bno);
+	public void hitup(int bno) {
+		boardDao.hitup(bno);
 	}
 
 	@Override
